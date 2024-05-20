@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "XQE2kQctfvNkneKeJwq/qKbeZxS6QRjzMMNsH9l1LMeY+kTqKczjasuN0bNDfkC6az8aW8rWVGGVgQgfmNtpxg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\laboratorio\\source\\repos\\MatrizEspecial\\MatrizEspecial\\MatrizEspecial.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\laboratorio\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.13\\microsoft.windowsdesktop.app.ref.6.0.13.nupkg.sha512",
+    "C:\\Users\\laboratorio\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.13\\microsoft.netcore.app.ref.6.0.13.nupkg.sha512",
+    "C:\\Users\\laboratorio\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.13\\microsoft.aspnetcore.app.ref.6.0.13.nupkg.sha512",
+    "C:\\Users\\laboratorio\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.13\\microsoft.netcore.app.host.win-x64.6.0.13.nupkg.sha512"
+  ],
+  "logs": []
+}
