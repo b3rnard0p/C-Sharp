@@ -1,0 +1,6 @@
+C:\Users\Win10\source\repos\GerenciamentoEscolar\Entidade\bin\Debug\Entidade.dll
+C:\Users\Win10\source\repos\GerenciamentoEscolar\Entidade\bin\Debug\Entidade.pdb
+C:\Users\Win10\source\repos\GerenciamentoEscolar\Entidade\obj\Debug\Models.csproj.AssemblyReference.cache
+C:\Users\Win10\source\repos\GerenciamentoEscolar\Entidade\obj\Debug\Models.csproj.CoreCompileInputs.cache
+C:\Users\Win10\source\repos\GerenciamentoEscolar\Entidade\obj\Debug\Entidade.dll
+C:\Users\Win10\source\repos\GerenciamentoEscolar\Entidade\obj\Debug\Entidade.pdb

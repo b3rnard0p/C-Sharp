@@ -1,0 +1,109 @@
+CREATE DATABASE escola
+GO
+USE escola
+GO
+
+CREATE TABLE tipo (
+    id_tipo VARCHAR(5) NOT NULL PRIMARY KEY,
+    nome_tipo VARCHAR(20) NOT NULL
+)
+GO
+
+INSERT INTO tipo VALUES('T1', 'Administrador')
+INSERT INTO tipo VALUES('T2', 'Secretario')
+INSERT INTO tipo VALUES('T3', 'Professor')
+GO
+
+CREATE TABLE usuario(
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    nome VARCHAR(20) NOT NULL,
+    senha VARCHAR(10) NOT NULL,
+    id_tipo VARCHAR(5) NOT NULL,
+    FOREIGN KEY (id_tipo) REFERENCES tipo(id_tipo)
+)
+GO
+
+INSERT INTO usuario (nome, senha, id_tipo) VALUES('Bernardo', 'admin', 'T1')
+INSERT INTO usuario (nome, senha, id_tipo) VALUES('Ana Julia', 'user', 'T2')
+INSERT INTO usuario (nome, senha, id_tipo) VALUES('Igor', 'prof', 'T3')
+GO
+
+CREATE PROCEDURE login
+    @usuario VARCHAR(20),
+    @senha VARCHAR(10)
+AS
+    SELECT nome, id_tipo, id
+    FROM usuario
+    WHERE nome=@usuario AND senha=@senha
+GO
+
+CREATE PROCEDURE buscar_usuario
+    @nome VARCHAR(50)
+AS
+BEGIN
+    SELECT id, nome, usuario.id_tipo, nome_tipo
+    FROM usuario
+    JOIN tipo ON usuario.id_tipo = tipo.id_tipo
+    WHERE nome LIKE '%' + @nome + '%'
+END
+GO
+
+CREATE PROCEDURE listar_usuario
+AS
+BEGIN
+    SELECT id, nome, usuario.id_tipo, nome_tipo
+    FROM usuario
+    JOIN tipo ON usuario.id_tipo = tipo.id_tipo
+    ORDER BY id
+END
+GO
+
+CREATE PROCEDURE procedimento_usuario
+    @id INT = NULL,
+    @nome VARCHAR(20),
+    @senha VARCHAR(10),
+    @id_tipo VARCHAR(5),
+    @acao VARCHAR(1),
+    @mensagem VARCHAR(100) OUTPUT
+AS
+BEGIN
+    IF @acao = '1' -- Inserir
+    BEGIN
+        INSERT INTO usuario (nome, senha, id_tipo)
+        VALUES (@nome, @senha, @id_tipo)
+        
+        SET @mensagem = 'Usuário inserido com ID: ' + CAST(SCOPE_IDENTITY() AS VARCHAR)
+    END
+    ELSE IF @acao = '2' -- Atualizar
+    BEGIN
+        IF NOT EXISTS (SELECT 1 FROM usuario WHERE id = @id)
+        BEGIN
+            SET @mensagem = 'Erro: Usuário com ID ' + CAST(@id AS VARCHAR) + ' não encontrado'
+            RETURN
+        END
+        
+        UPDATE usuario
+        SET nome = @nome,
+            senha = @senha,
+            id_tipo = @id_tipo
+        WHERE id = @id
+        
+        SET @mensagem = 'Usuário atualizado com sucesso. ID: ' + CAST(@id AS VARCHAR)
+    END
+    ELSE IF @acao = '3' -- Excluir
+    BEGIN
+        IF NOT EXISTS (SELECT 1 FROM usuario WHERE id = @id)
+        BEGIN
+            SET @mensagem = 'Erro: Usuário com ID ' + CAST(@id AS VARCHAR) + ' não encontrado'
+            RETURN
+        END
+        
+        DELETE FROM usuario WHERE id = @id
+        SET @mensagem = 'Usuário excluído com sucesso. ID: ' + CAST(@id AS VARCHAR)
+    END
+    ELSE
+    BEGIN
+        SET @mensagem = 'Ação inválida. Use: 1-Inserir, 2-Atualizar, 3-Excluir'
+    END
+END
+GO

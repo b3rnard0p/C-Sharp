@@ -1,0 +1,11 @@
+C:\Users\Win10\source\repos\GerenciamentoEscolar\Negocio\bin\Debug\Negocio.dll
+C:\Users\Win10\source\repos\GerenciamentoEscolar\Negocio\bin\Debug\Negocio.pdb
+C:\Users\Win10\source\repos\GerenciamentoEscolar\Negocio\bin\Debug\BibliotecaDeDados.dll
+C:\Users\Win10\source\repos\GerenciamentoEscolar\Negocio\bin\Debug\Entidade.dll
+C:\Users\Win10\source\repos\GerenciamentoEscolar\Negocio\bin\Debug\BibliotecaDeDados.pdb
+C:\Users\Win10\source\repos\GerenciamentoEscolar\Negocio\bin\Debug\Entidade.pdb
+C:\Users\Win10\source\repos\GerenciamentoEscolar\Negocio\obj\Debug\ClasseNegocio.csproj.AssemblyReference.cache
+C:\Users\Win10\source\repos\GerenciamentoEscolar\Negocio\obj\Debug\ClasseNegocio.csproj.CoreCompileInputs.cache
+C:\Users\Win10\source\repos\GerenciamentoEscolar\Negocio\obj\Debug\ClasseNe.C58C11E8.Up2Date
+C:\Users\Win10\source\repos\GerenciamentoEscolar\Negocio\obj\Debug\Negocio.dll
+C:\Users\Win10\source\repos\GerenciamentoEscolar\Negocio\obj\Debug\Negocio.pdb
