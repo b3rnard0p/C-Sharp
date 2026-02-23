@@ -1,0 +1,14 @@
+C:\Users\laboratorio\source\repos\Conceitos Básicos\bin\Debug\net8.0\Conceitos Básicos.exe
+C:\Users\laboratorio\source\repos\Conceitos Básicos\bin\Debug\net8.0\Conceitos Básicos.deps.json
+C:\Users\laboratorio\source\repos\Conceitos Básicos\bin\Debug\net8.0\Conceitos Básicos.runtimeconfig.json
+C:\Users\laboratorio\source\repos\Conceitos Básicos\bin\Debug\net8.0\Conceitos Básicos.dll
+C:\Users\laboratorio\source\repos\Conceitos Básicos\bin\Debug\net8.0\Conceitos Básicos.pdb
+C:\Users\laboratorio\source\repos\Conceitos Básicos\obj\Debug\net8.0\Conceitos Básicos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\laboratorio\source\repos\Conceitos Básicos\obj\Debug\net8.0\Conceitos Básicos.AssemblyInfoInputs.cache
+C:\Users\laboratorio\source\repos\Conceitos Básicos\obj\Debug\net8.0\Conceitos Básicos.AssemblyInfo.cs
+C:\Users\laboratorio\source\repos\Conceitos Básicos\obj\Debug\net8.0\Conceitos Básicos.csproj.CoreCompileInputs.cache
+C:\Users\laboratorio\source\repos\Conceitos Básicos\obj\Debug\net8.0\Conceitos Básicos.dll
+C:\Users\laboratorio\source\repos\Conceitos Básicos\obj\Debug\net8.0\refint\Conceitos Básicos.dll
+C:\Users\laboratorio\source\repos\Conceitos Básicos\obj\Debug\net8.0\Conceitos Básicos.pdb
+C:\Users\laboratorio\source\repos\Conceitos Básicos\obj\Debug\net8.0\Conceitos Básicos.genruntimeconfig.cache
+C:\Users\laboratorio\source\repos\Conceitos Básicos\obj\Debug\net8.0\ref\Conceitos Básicos.dll
