@@ -69,6 +69,111 @@ namespace Conceitos_Básicos
 
             Console.WriteLine("Curso:" + curso);
             Console.WriteLine("Disciplina:" + disciplina);
+
+             //double n1;
+             //Console.WriteLine("Digite um double: ");
+             //n1 = double.Parse(Console.ReadLine());
+             //if (n1 > 0)
+             //{
+             //    Console.WriteLine("N1 positivo!");
+             //}
+             //else if (n1 < 0)
+             //{
+             //    Console.WriteLine("N2 negativo!");
+             //}
+             //else
+             //{
+             //    Console.WriteLine("N1 é 0!");
+             //}
+            
+             //int n2;
+             //Console.WriteLine("Digite um numero: ");
+             //n2 = int.Parse(Console.ReadLine());
+             //if (n2 % 2 == 0)
+             //{
+             //    Console.WriteLine("Divisivel por 2!");
+             //}
+             //if (n2 % 4 == 0)
+             //{
+             //    Console.WriteLine("Divisivel por 4!");
+             //}
+             //if (n2 % 8 == 0)
+             //{
+             //    Console.WriteLine("Divisivel por 8!");
+             //}
+            
+             //bool continuar = true;
+            
+             //Console.Write("Escolha o número da operação: ");
+             //Console.WriteLine("\n1 - Soma");
+             //Console.WriteLine("2 - Subtração");
+             //Console.WriteLine("3 - Divisão");
+             //Console.WriteLine("4 - Multiplicação");
+             //string opcao = Console.ReadLine();
+            
+             //Console.Write("Digite o primeiro número: ");
+             //double numero1 = Convert.ToDouble(Console.ReadLine());
+            
+             //Console.Write("Digite o segundo número: ");
+             //double numero2 = Convert.ToDouble(Console.ReadLine());
+            
+             //if (opcao == "1")
+             //{
+             //    double resultado = numero1 + numero2;
+             //    Console.WriteLine($"Usar calculadora p isso é sacanagem: {resultado}");
+             //}
+             //else if (opcao == "2")
+             //{
+             //    double resultado = numero1 - numero2;
+             //    Console.WriteLine($"Só falta me dizer que conta nos dedos ainda: {resultado}");
+             //}
+             //else if (opcao == "3")
+             //{
+             //    if (numero2 == 0)
+             //    {
+             //        Console.WriteLine("Erro: Não é possível que com a tua idade tu não sabe que não se divide por zero.");
+             //    }
+             //    else
+             //    {
+             //        double resultado = numero1 / numero2;
+             //        Console.WriteLine($"Da próxima vez usa a cabeça: {resultado}");
+             //    }
+             //}
+             //else if (opcao == "4")
+             //{
+             //    double resultado = numero1 * numero2;
+             //    Console.WriteLine($"P tu ser burro falta muito ainda: {resultado}");
+             //}
+            
+             //for (int i = 0; i < 10; i++)
+             //{
+             //    if(i == 5)
+             //    {
+             //        continue;
+             //    }
+             //    if (i == 8)
+             //    {
+             //        break;
+             //    }
+             //    Console.WriteLine(i);
+             //}
+            
+             while (true)
+             {
+                 double op;
+                 Console.Write("Escolha o número da operação (1 a 4): ");
+                 op = Convert.ToDouble(Console.ReadLine());
+            
+                 if (op == 1 || op == 2 || op == 3 || op == 4)
+                 {
+                     break;
+                 }
+                 else
+                 {
+                     Console.WriteLine("Opção inválida! Por favor, digite um valor entre 1 e 4.\n");
+                 }
+             }
         }
     }
 }
+
