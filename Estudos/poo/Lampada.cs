@@ -8,7 +8,7 @@ namespace Aula3
 {
     internal class Lampada
     {
-        public Boolean Ligada; //public bool Ligada
+        public Boolean Ligada;
         public double Potencia;
 
         public void Ligar()
