@@ -1,0 +1,38 @@
+﻿@page
+@model HelloWord.Pages.SociosModel
+@{
+    ViewData["Title"] = "Quadro de Sócios";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table border="1" style="border-collapse: collapse; width: 100%; text-align: left; margin-top: 20px;">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Categoria</th>
+            <th>Idade</th>
+            <th>Mensalidade</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var socio in Model.ListaSocios)
+        {
+            <tr>
+                <td>
+                    @if (socio.Categoria == "Ouro")
+                    {
+                        <strong>@socio.Nome</strong>
+                    }
+                    else
+                    {
+                        @socio.Nome
+                    }
+                </td>
+                <td>@socio.Categoria</td>
+                <td>@socio.Idade</td>
+                <td>@socio.Mensalidade.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>

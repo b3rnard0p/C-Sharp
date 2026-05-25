@@ -1,0 +1,26 @@
+﻿@page
+@model HelloWord.Pages.FuncionariosModel
+@{
+    ViewData["Title"] = "Funcionários";
+}
+
+<h1>@ViewData["Title"]</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Cargo</th>
+            <th>Sálario</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var func in Model.Funcionarios)
+        {
+            <tr>
+                <td>@func.Nome</td>
+                <td>@func.Cargo</td>
+                <td>@func.Salario.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>

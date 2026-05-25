@@ -1,0 +1,24 @@
+﻿@page
+@model HelloWord.Pages.ProdutoModel
+@{
+    ViewData["Title"] = "Produtos";
+}
+
+<h1>@ViewData["Title"]</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Descrição</th>
+            <th>Preço</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var produto in Model.Produtos)
+        {
+            <tr>
+                <td>@produto.Descricao</td>
+                <td>@produto.Preco.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>
