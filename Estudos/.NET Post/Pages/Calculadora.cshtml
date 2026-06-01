@@ -1,0 +1,39 @@
+﻿@page
+@model Formulario.Pages.CalculadoraModel
+@{
+}
+
+<h1>Calculadora de Divisão Segura</h1>
+<hr />
+
+<form method="post">
+    <div>
+        <label>Primeiro Número:</label>
+        <input asp-for="Numero1" type="number" class="form-control" />
+    </div>
+
+    <div>
+        <label>Segundo Número:</label>
+        <input asp-for="Numero2" type="number" class="form-control" />
+    </div>
+
+    <br />
+
+    <button type="submit" class="btn btn-primary">Dividir</button>
+</form>
+
+<br />
+
+@if (Model.Resultado.HasValue)
+{
+    <div class="alert alert-success">
+        <h3>Resultado: @Model.Resultado</h3>
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(Model.MensagemDeErro))
+{
+    <div class="alert alert-danger">
+        <h3>@Model.MensagemDeErro</h3>
+    </div>
+}

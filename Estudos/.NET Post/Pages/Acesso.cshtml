@@ -1,0 +1,32 @@
+﻿@page
+@model Formulario.Pages.AcessoModel
+@{
+}
+
+<h1>Verificador de Acesso</h1>
+<hr />
+
+<form method="post">
+    <div>
+        <label>Nome:</label>
+        <input asp-for="Nome" type="text" class="form-control" />
+    </div>
+
+    <div>
+        <label>Idade:</label>
+        <input asp-for="Idade" type="number" class="form-control" />
+    </div>
+
+    <br />
+
+    <button type="submit" class="btn btn-primary">Verificar</button>
+</form>
+
+<br />
+
+@if (!string.IsNullOrEmpty(Model.MensagemDeRetorno))
+{
+    <div class="alert alert-info">
+        <h3>@Model.MensagemDeRetorno</h3>
+    </div>
+}
