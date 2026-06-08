@@ -1,0 +1,31 @@
+﻿@page
+@model WebApplication1.Pages.Usuarios.UsuarioModel
+@{
+    ViewData["Title"] = "Cadastrar Usuário";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="usuario.Id">Id: </label>
+        <input asp-for="usuario.Id" class="form-control"/>
+        <span asp-validation-for="usuario.id" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="usuario.Nome">Nome: </label>
+        <input asp-for="usuario.Nome" class="form-control" />
+        <span asp-validation-for="usuario.Nome" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="usuario.Senha">Senha: </label>
+        <input asp-for="usuario.Senha" class="form-control" />
+        <span asp-validation-for="usuario.Senha" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="usuario.Email">Email: </label>
+        <input asp-for="usuario.Email" class="form-control" />
+        <span asp-validation-for="usuario.Email" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+</form>

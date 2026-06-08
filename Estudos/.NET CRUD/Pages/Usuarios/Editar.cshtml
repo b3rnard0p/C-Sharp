@@ -1,0 +1,30 @@
+﻿@page
+@model WebApplication1.Pages.Usuarios.EditarModel
+@{
+    ViewData["Title"] = "Editar Usuário";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post">
+   <input type="hidden" asp-for="Usuario.Id"/>
+
+    <div class="form-group">
+        <label asp-asp-for="usuario.Nome">Nome: </label>
+        <input asp-for="Usuario.Nome" class="form-control" />
+        <span asp-validation-for="Usuario.Nome" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-asp-for="usuario.Senha">Senha: </label>
+        <input asp-for="Usuario.Senha" class="form-control" />
+        <span asp-validation-for="Usuario.Senha" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-asp-for="usuario.Email">Email: </label>
+        <input asp-for="Usuario.Email" class="form-control" />
+        <span asp-validation-for="Usuario.Email" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Editar</button>
+    <a asp-page="/Usuarios/Index" class="btn btn-secondary">Cancelar</a>
+</form>
+

@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\laboratorio\\Documents\\GitHub\\C-Sharp\\Estudos\\WebApplication1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6C963521-C8C1-452C-847F-BADA1A6A129B}|WebApplication1.csproj|c:\\users\\laboratorio\\documents\\github\\c-sharp\\estudos\\webapplication1\\pages\\usuarios\\detalhes.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C963521-C8C1-452C-847F-BADA1A6A129B}|WebApplication1.csproj|solutionrelative:pages\\usuarios\\detalhes.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C963521-C8C1-452C-847F-BADA1A6A129B}|WebApplication1.csproj|c:\\users\\laboratorio\\documents\\github\\c-sharp\\estudos\\webapplication1\\pages\\usuarios\\detalhes.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6C963521-C8C1-452C-847F-BADA1A6A129B}|WebApplication1.csproj|solutionrelative:pages\\usuarios\\detalhes.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C963521-C8C1-452C-847F-BADA1A6A129B}|WebApplication1.csproj|c:\\users\\laboratorio\\documents\\github\\c-sharp\\estudos\\webapplication1\\pages\\usuarios\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C963521-C8C1-452C-847F-BADA1A6A129B}|WebApplication1.csproj|solutionrelative:pages\\usuarios\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C963521-C8C1-452C-847F-BADA1A6A129B}|WebApplication1.csproj|c:\\users\\laboratorio\\documents\\github\\c-sharp\\estudos\\webapplication1\\pages\\usuarios\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6C963521-C8C1-452C-847F-BADA1A6A129B}|WebApplication1.csproj|solutionrelative:pages\\usuarios\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C963521-C8C1-452C-847F-BADA1A6A129B}|WebApplication1.csproj|c:\\users\\laboratorio\\documents\\github\\c-sharp\\estudos\\webapplication1\\pages\\usuarios\\criar.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C963521-C8C1-452C-847F-BADA1A6A129B}|WebApplication1.csproj|solutionrelative:pages\\usuarios\\criar.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C963521-C8C1-452C-847F-BADA1A6A129B}|WebApplication1.csproj|c:\\users\\laboratorio\\documents\\github\\c-sharp\\estudos\\webapplication1\\pages\\usuarios\\criar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6C963521-C8C1-452C-847F-BADA1A6A129B}|WebApplication1.csproj|solutionrelative:pages\\usuarios\\criar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Detalhes.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\laboratorio\\Documents\\GitHub\\C-Sharp\\Estudos\\WebApplication1\\Pages\\Usuarios\\Detalhes.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Usuarios\\Detalhes.cshtml.cs",
+              "ToolTip": "C:\\Users\\laboratorio\\Documents\\GitHub\\C-Sharp\\Estudos\\WebApplication1\\Pages\\Usuarios\\Detalhes.cshtml.cs",
+              "RelativeToolTip": "Pages\\Usuarios\\Detalhes.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-08T19:22:29.132Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Detalhes.cshtml",
+              "DocumentMoniker": "C:\\Users\\laboratorio\\Documents\\GitHub\\C-Sharp\\Estudos\\WebApplication1\\Pages\\Usuarios\\Detalhes.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Usuarios\\Detalhes.cshtml",
+              "ToolTip": "C:\\Users\\laboratorio\\Documents\\GitHub\\C-Sharp\\Estudos\\WebApplication1\\Pages\\Usuarios\\Detalhes.cshtml",
+              "RelativeToolTip": "Pages\\Usuarios\\Detalhes.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-08T19:22:02.994Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\laboratorio\\Documents\\GitHub\\C-Sharp\\Estudos\\WebApplication1\\Pages\\Usuarios\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Usuarios\\Index.cshtml.cs",
+              "ToolTip": "C:\\Users\\laboratorio\\Documents\\GitHub\\C-Sharp\\Estudos\\WebApplication1\\Pages\\Usuarios\\Index.cshtml.cs",
+              "RelativeToolTip": "Pages\\Usuarios\\Index.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-08T19:00:22.735Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\laboratorio\\Documents\\GitHub\\C-Sharp\\Estudos\\WebApplication1\\Pages\\Usuarios\\Index.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Usuarios\\Index.cshtml",
+              "ToolTip": "C:\\Users\\laboratorio\\Documents\\GitHub\\C-Sharp\\Estudos\\WebApplication1\\Pages\\Usuarios\\Index.cshtml",
+              "RelativeToolTip": "Pages\\Usuarios\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-08T18:59:45.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Criar.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\laboratorio\\Documents\\GitHub\\C-Sharp\\Estudos\\WebApplication1\\Pages\\Usuarios\\Criar.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Usuarios\\Criar.cshtml.cs",
+              "ToolTip": "C:\\Users\\laboratorio\\Documents\\GitHub\\C-Sharp\\Estudos\\WebApplication1\\Pages\\Usuarios\\Criar.cshtml.cs",
+              "RelativeToolTip": "Pages\\Usuarios\\Criar.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-08T18:49:24.361Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Criar.cshtml",
+              "DocumentMoniker": "C:\\Users\\laboratorio\\Documents\\GitHub\\C-Sharp\\Estudos\\WebApplication1\\Pages\\Usuarios\\Criar.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Usuarios\\Criar.cshtml",
+              "ToolTip": "C:\\Users\\laboratorio\\Documents\\GitHub\\C-Sharp\\Estudos\\WebApplication1\\Pages\\Usuarios\\Criar.cshtml",
+              "RelativeToolTip": "Pages\\Usuarios\\Criar.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-08T18:49:20.84Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

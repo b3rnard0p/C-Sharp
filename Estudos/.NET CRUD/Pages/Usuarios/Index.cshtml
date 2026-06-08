@@ -1,0 +1,40 @@
+﻿@page
+@model WebApplication1.Pages.Usuarios.IndexModel
+@{
+    ViewData["Title"] = "Cadastro de Usuários";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>
+    <a class="btn btn-primary" asp-page="/Usuario/Criar">Criar Novo Usuário</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id:</th>
+            <th>Nome:</th>
+            <th>Senha:</th>
+            <th>Email:</th>
+            <th>Ações:</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var usuario in Model.Usuarios)
+        {
+            <tr>
+                <th>
+                    <a asp-asp-page="/Usuarios/Detalhes" asp-route-id="@usuario.Id">@usuario.Id</a>
+                </th>
+                <th>@usuario.Nome</th>
+                <th>@usuario.Senha</th>
+                <th>@usuario.Email</th>
+                <th>
+                    <a class="btn btn-outline-info" asp-page="/Usuarios/Detalhes" asp-route-id="@usuario.Id">Detalhar</a>
+                    <a class="btn btn-outline-info" asp-page="/Usuarios/Editar" asp-route-id="@usuario.Id">Editar</a>
+                </th>
+            </tr>
+        }
+    </tbody>
+</table>
