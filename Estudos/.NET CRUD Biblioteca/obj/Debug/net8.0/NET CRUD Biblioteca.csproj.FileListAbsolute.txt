@@ -1,0 +1,33 @@
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\obj\Debug\net8.0\NET CRUD Biblioteca.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\obj\Debug\net8.0\NET CRUD Biblioteca.AssemblyInfoInputs.cache
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\obj\Debug\net8.0\NET CRUD Biblioteca.AssemblyInfo.cs
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\obj\Debug\net8.0\NET CRUD Biblioteca.csproj.CoreCompileInputs.cache
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\obj\Debug\net8.0\NET CRUD Biblioteca.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\obj\Debug\net8.0\NET CRUD Biblioteca.RazorAssemblyInfo.cache
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\obj\Debug\net8.0\NET CRUD Biblioteca.RazorAssemblyInfo.cs
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\bin\Debug\net8.0\appsettings.json
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\bin\Debug\net8.0\NET CRUD Biblioteca.staticwebassets.runtime.json
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\bin\Debug\net8.0\NET CRUD Biblioteca.staticwebassets.endpoints.json
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\bin\Debug\net8.0\NET CRUD Biblioteca.exe
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\bin\Debug\net8.0\NET CRUD Biblioteca.deps.json
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\bin\Debug\net8.0\NET CRUD Biblioteca.runtimeconfig.json
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\bin\Debug\net8.0\NET CRUD Biblioteca.dll
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\bin\Debug\net8.0\NET CRUD Biblioteca.pdb
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\obj\Debug\net8.0\rjimswa.dswa.cache.json
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\obj\Debug\net8.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\obj\Debug\net8.0\scopedcss\bundle\NET CRUD Biblioteca.styles.css
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\obj\Debug\net8.0\scopedcss\projectbundle\NET CRUD Biblioteca.bundle.scp.css
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\obj\Debug\net8.0\staticwebassets.build.json.cache
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\obj\Debug\net8.0\NET CRUD Biblioteca.dll
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\obj\Debug\net8.0\refint\NET CRUD Biblioteca.dll
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\obj\Debug\net8.0\NET CRUD Biblioteca.pdb
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\obj\Debug\net8.0\NET CRUD Biblioteca.genruntimeconfig.cache
+C:\Users\laboratorio\source\repos\NET CRUD Biblioteca\obj\Debug\net8.0\ref\NET CRUD Biblioteca.dll

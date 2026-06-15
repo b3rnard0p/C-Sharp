@@ -1,0 +1,16 @@
+﻿@page
+@model NET_CRUD_Biblioteca.Pages.Livros.DetalhesModel
+@{
+    ViewData["Title"] = "Detalhes do Livro";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <p><strong>Id:</strong> @Model.Livro.Id</p>
+    <p><strong>Título:</strong> @Model.Livro.Titulo</p>
+    <p><strong>Autor:</strong> @Model.Livro.Autor</p>
+    <p><strong>ISBN:</strong> @Model.Livro.Isbn</p>
+</div>
+
+<a class="btn btn-secondary" asp-page="/Livros/Index">Voltar</a>

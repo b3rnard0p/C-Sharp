@@ -1,13 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
+using WebApplication1.Model;
 
-namespace WebApplication1.Model.Usuarios
+namespace WebApplication1.Pages.Usuarios
 {
     public class DetalhesModel : PageModel
     {
         public Usuario Usuario { get; set; }
-        public void OnGet(int id)
+        public IActionResult OnGet(int id)
         {
             var usuarios = CarregarUsuarios();
             Usuario = usuarios.FirstOrDefault(u => u.Id ==- id);
@@ -27,7 +28,7 @@ namespace WebApplication1.Model.Usuarios
                 foreach (var linha in linhas)
                 {
                     var dados = linha.Split(',');
-                    lista.Add(new Usuario { Id = dados[0], Name = dados[1], Senha = dados[2], Email = dados[3] });
+                    lista.Add(new Usuario { Id = int.Parse(dados[0]), Nome = dados[1], Senha = dados[2], Email = dados[3] });
                 }
             }
             return lista;

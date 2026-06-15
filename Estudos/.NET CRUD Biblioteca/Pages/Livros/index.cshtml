@@ -1,0 +1,39 @@
+﻿@page
+@model NET_CRUD_Biblioteca.Pages.Livros.IndexModel
+@{
+    ViewData["Title"] = "Catálogo de Livros";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>
+    <a class="btn btn-primary" asp-page="/Livros/Criar">Adicionar Novo Livro</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>ISBN</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var livro in Model.Livros)
+        {
+            <tr>
+                <td>@livro.Id</td>
+                <td>@livro.Titulo</td>
+                <td>@livro.Autor</td>
+                <td>@livro.Isbn</td>
+                <td>
+                    <a class="btn btn-outline-info" asp-page="/Livros/Detalhes" asp-route-id="@livro.Id">Detalhes</a>
+                    <a class="btn btn-outline-warning" asp-page="/Livros/Editar" asp-route-id="@livro.Id">Editar</a>
+                    <a class="btn btn-outline-danger" asp-page="/Livros/Deletar" asp-route-id="@livro.Id" onclick="return confirm('Tem certeza que deseja deletar?');">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

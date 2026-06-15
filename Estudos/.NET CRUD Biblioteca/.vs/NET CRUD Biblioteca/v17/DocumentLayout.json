@@ -1,0 +1,156 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\laboratorio\\source\\repos\\NET CRUD Biblioteca\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FEDFDF49-E16C-4F94-8B0A-BC0450977D52}|NET CRUD Biblioteca.csproj|c:\\users\\laboratorio\\source\\repos\\net crud biblioteca\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEDFDF49-E16C-4F94-8B0A-BC0450977D52}|NET CRUD Biblioteca.csproj|solutionrelative:pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEDFDF49-E16C-4F94-8B0A-BC0450977D52}|NET CRUD Biblioteca.csproj|c:\\users\\laboratorio\\source\\repos\\net crud biblioteca\\pages\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEDFDF49-E16C-4F94-8B0A-BC0450977D52}|NET CRUD Biblioteca.csproj|solutionrelative:pages\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEDFDF49-E16C-4F94-8B0A-BC0450977D52}|NET CRUD Biblioteca.csproj|c:\\users\\laboratorio\\source\\repos\\net crud biblioteca\\pages\\livros\\deletar.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEDFDF49-E16C-4F94-8B0A-BC0450977D52}|NET CRUD Biblioteca.csproj|solutionrelative:pages\\livros\\deletar.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEDFDF49-E16C-4F94-8B0A-BC0450977D52}|NET CRUD Biblioteca.csproj|c:\\users\\laboratorio\\source\\repos\\net crud biblioteca\\pages\\livros\\deletar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEDFDF49-E16C-4F94-8B0A-BC0450977D52}|NET CRUD Biblioteca.csproj|solutionrelative:pages\\livros\\deletar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEDFDF49-E16C-4F94-8B0A-BC0450977D52}|NET CRUD Biblioteca.csproj|c:\\users\\laboratorio\\source\\repos\\net crud biblioteca\\pages\\livros\\editar.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEDFDF49-E16C-4F94-8B0A-BC0450977D52}|NET CRUD Biblioteca.csproj|solutionrelative:pages\\livros\\editar.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEDFDF49-E16C-4F94-8B0A-BC0450977D52}|NET CRUD Biblioteca.csproj|c:\\users\\laboratorio\\source\\repos\\net crud biblioteca\\pages\\livros\\editar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEDFDF49-E16C-4F94-8B0A-BC0450977D52}|NET CRUD Biblioteca.csproj|solutionrelative:pages\\livros\\editar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEDFDF49-E16C-4F94-8B0A-BC0450977D52}|NET CRUD Biblioteca.csproj|c:\\users\\laboratorio\\source\\repos\\net crud biblioteca\\pages\\livros\\detalhes.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEDFDF49-E16C-4F94-8B0A-BC0450977D52}|NET CRUD Biblioteca.csproj|solutionrelative:pages\\livros\\detalhes.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEDFDF49-E16C-4F94-8B0A-BC0450977D52}|NET CRUD Biblioteca.csproj|c:\\users\\laboratorio\\source\\repos\\net crud biblioteca\\pages\\livros\\detalhes.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEDFDF49-E16C-4F94-8B0A-BC0450977D52}|NET CRUD Biblioteca.csproj|solutionrelative:pages\\livros\\detalhes.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\laboratorio\\source\\repos\\NET CRUD Biblioteca\\Pages\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "Pages\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\laboratorio\\source\\repos\\NET CRUD Biblioteca\\Pages\\_ViewImports.cshtml",
+              "RelativeToolTip": "Pages\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-15T19:06:12.431Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\laboratorio\\source\\repos\\NET CRUD Biblioteca\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\laboratorio\\source\\repos\\NET CRUD Biblioteca\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Pages\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAYwBwAAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-15T19:00:24.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Deletar.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\laboratorio\\source\\repos\\NET CRUD Biblioteca\\Pages\\Livros\\Deletar.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Livros\\Deletar.cshtml.cs",
+              "ToolTip": "C:\\Users\\laboratorio\\source\\repos\\NET CRUD Biblioteca\\Pages\\Livros\\Deletar.cshtml.cs",
+              "RelativeToolTip": "Pages\\Livros\\Deletar.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-15T19:00:02.784Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Deletar.cshtml",
+              "DocumentMoniker": "C:\\Users\\laboratorio\\source\\repos\\NET CRUD Biblioteca\\Pages\\Livros\\Deletar.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Livros\\Deletar.cshtml",
+              "ToolTip": "C:\\Users\\laboratorio\\source\\repos\\NET CRUD Biblioteca\\Pages\\Livros\\Deletar.cshtml",
+              "RelativeToolTip": "Pages\\Livros\\Deletar.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-15T18:59:58.893Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Editar.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\laboratorio\\source\\repos\\NET CRUD Biblioteca\\Pages\\Livros\\Editar.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Livros\\Editar.cshtml.cs",
+              "ToolTip": "C:\\Users\\laboratorio\\source\\repos\\NET CRUD Biblioteca\\Pages\\Livros\\Editar.cshtml.cs",
+              "RelativeToolTip": "Pages\\Livros\\Editar.cshtml.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAiwEkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-15T18:59:32.519Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Editar.cshtml",
+              "DocumentMoniker": "C:\\Users\\laboratorio\\source\\repos\\NET CRUD Biblioteca\\Pages\\Livros\\Editar.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Livros\\Editar.cshtml",
+              "ToolTip": "C:\\Users\\laboratorio\\source\\repos\\NET CRUD Biblioteca\\Pages\\Livros\\Editar.cshtml",
+              "RelativeToolTip": "Pages\\Livros\\Editar.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-15T18:59:18.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Detalhes.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\laboratorio\\source\\repos\\NET CRUD Biblioteca\\Pages\\Livros\\Detalhes.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Livros\\Detalhes.cshtml.cs",
+              "ToolTip": "C:\\Users\\laboratorio\\source\\repos\\NET CRUD Biblioteca\\Pages\\Livros\\Detalhes.cshtml.cs",
+              "RelativeToolTip": "Pages\\Livros\\Detalhes.cshtml.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAiwC4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-15T18:58:56.071Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Detalhes.cshtml",
+              "DocumentMoniker": "C:\\Users\\laboratorio\\source\\repos\\NET CRUD Biblioteca\\Pages\\Livros\\Detalhes.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Livros\\Detalhes.cshtml",
+              "ToolTip": "C:\\Users\\laboratorio\\source\\repos\\NET CRUD Biblioteca\\Pages\\Livros\\Detalhes.cshtml",
+              "RelativeToolTip": "Pages\\Livros\\Detalhes.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-15T18:58:42.566Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+﻿@page
+@model NET_CRUD_Biblioteca.Pages.Livros.CriarModel
+@{
+    ViewData["Title"] = "Cadastrar Livro";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Livro.Id">Id: </label>
+        <input asp-for="Livro.Id" class="form-control" />
+        <span asp-validation-for="Livro.Id" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Livro.Titulo">Título: </label>
+        <input asp-for="Livro.Titulo" class="form-control" />
+        <span asp-validation-for="Livro.Titulo" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Livro.Autor">Autor: </label>
+        <input asp-for="Livro.Autor" class="form-control" />
+        <span asp-validation-for="Livro.Autor" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Livro.Isbn">ISBN: </label>
+        <input asp-for="Livro.Isbn" class="form-control" />
+        <span asp-validation-for="Livro.Isbn" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+    <a asp-page="/Livros/Index" class="btn btn-secondary">Voltar</a>
+</form>

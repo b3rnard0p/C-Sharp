@@ -1,0 +1,16 @@
+﻿@page "{id:int}"
+@model CadastroUsuario.Pages.Usuarios.DeletarModel
+@{
+    // Não precisamos de HTML estruturado aqui, pois o método OnGet
+    // vai processar a exclusão no arquivo de texto e redirecionar imediatamente.
+    Layout = null;
+}
+
+<td>
+    <a asp-page="/Usuarios/Deletar"
+       asp-route-id="Usuario.Id"
+       class="btn btn-danger btn-sm"
+       onclick="return confirm('Tem certeza que deseja excluir o usuário Usuario.Nome?');">
+        <i class="bi bi-trash"></i> Excluir
+    </a>
+</td>
