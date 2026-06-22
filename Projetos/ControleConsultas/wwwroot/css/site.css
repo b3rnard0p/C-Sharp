@@ -1,0 +1,748 @@
+:root {
+    /* Dark Mode (Zinc) */
+    --bg-primary: #09090b;
+    --bg-secondary: #18181b;
+    --bg-card: rgba(39, 39, 42, 0.4);
+    --bg-card-hover: rgba(39, 39, 42, 0.8);
+    --border-glass: #27272a;
+    --border-muted: #3f3f46;
+
+    --accent-primary: #10b981; /* Green */
+    --accent-hover: #059669;
+    --accent-secondary: #52525b; /* Zinc 600 */
+    --accent-danger: #ef4444;
+    --accent-warning: #f59e0b;
+
+    --text-primary: #f4f4f5; /* Zinc 100 */
+    --text-secondary: #d4d4d8; /* Zinc 300 */
+    --text-muted: #a1a1aa; /* Zinc 400 */
+
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.4);
+
+    --transition: all 0.2s ease-in-out;
+}
+
+[data-theme="light"] {
+    /* Light Mode (Mint/White) */
+    --bg-primary: #f0faf4; 
+    --bg-secondary: #e6f2eb; 
+    --bg-card: transparent;
+    --bg-card-hover: rgba(255, 255, 255, 0.4); 
+    --border-glass: #c3decb; 
+    --border-muted: #e6f2eb;
+
+    --text-primary: #0f172a; 
+    --text-secondary: #334155; 
+    --text-muted: #64748b; 
+
+    --shadow-sm: 0 1px 2px rgba(16, 185, 129, 0.04);
+    --shadow-md: 0 4px 6px rgba(16, 185, 129, 0.04);
+    --shadow-lg: 0 10px 15px rgba(16, 185, 129, 0.04);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 15px;
+    scroll-behavior: smooth;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+    background: var(--bg-secondary) !important;
+    border-bottom: 1px solid var(--border-glass) !important;
+    padding: 0.75rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary) !important;
+    letter-spacing: -0.3px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.navbar-brand .brand-icon {
+    width: 30px;
+    height: 30px;
+    background: var(--accent-primary);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 16px;
+}
+
+.nav-link {
+    color: var(--text-secondary) !important;
+    font-weight: 500;
+    font-size: 0.875rem;
+    padding: 0.45rem 0.85rem !important;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.nav-link:hover {
+    color: var(--text-primary) !important;
+    background: var(--bg-card);
+}
+
+.nav-link.active-nav {
+    color: var(--accent-primary) !important;
+    background: rgba(16, 185, 129, 0.1);
+}
+
+/* ---------- Containers ---------- */
+.container {
+    max-width: 1200px;
+}
+
+main {
+    padding: 2rem 0 4rem;
+}
+
+/* ---------- Cards Neutros ---------- */
+.glass-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.glass-card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-glass);
+}
+
+/* ---------- Stat Cards (Dashboard) ---------- */
+.stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    height: 100%;
+    transition: var(--transition);
+}
+
+.stat-card:hover {
+    background: var(--bg-card-hover);
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-glass);
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--text-primary);
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+}
+
+/* ---------- T�tulos de P�gina ---------- */
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 2rem;
+    gap: 1rem;
+    text-align: center;
+}
+
+.page-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+    margin: 0;
+}
+
+.page-title span {
+    color: var(--accent-primary);
+}
+
+/* ---------- Bot�es Padronizados (Fundo padr�o, borda muda ao passar o mouse) ---------- */
+.btn {
+    font-weight: 500;
+    font-size: 0.875rem;
+    border-radius: var(--radius-sm);
+    padding: 0.5rem 1.1rem;
+    border: 1px solid var(--border-glass);
+    background: var(--bg-secondary);
+    color: var(--text-primary) !important;
+    transition: var(--transition);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: var(--bg-secondary);
+    border-color: var(--text-muted);
+}
+
+.btn-primary {
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.btn-primary:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary) !important;
+}
+
+.btn-success {
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.btn-success:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary) !important;
+}
+
+.btn-warning {
+    border-color: rgba(245, 158, 11, 0.3);
+}
+
+.btn-warning:hover {
+    border-color: var(--accent-warning);
+    color: var(--accent-warning) !important;
+}
+
+.btn-danger {
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.btn-danger:hover {
+    border-color: var(--accent-danger);
+    color: var(--accent-danger) !important;
+}
+
+/* Os bot�es de outline das tabelas seguir�o o mesmo padr�o agora */
+.btn-outline-info {
+    border-color: var(--border-glass);
+}
+.btn-outline-info:hover {
+    border-color: #38bdf8; /* sky-400 */
+    color: #38bdf8 !important;
+}
+
+.btn-outline-warning {
+    border-color: var(--border-glass);
+}
+.btn-outline-warning:hover {
+    border-color: var(--accent-warning);
+    color: var(--accent-warning) !important;
+}
+
+.btn-outline-danger {
+    border-color: var(--border-glass);
+}
+.btn-outline-danger:hover {
+    border-color: var(--accent-danger);
+    color: var(--accent-danger) !important;
+}
+
+.btn-sm {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.8rem;
+}
+
+/* ---------- Tabelas Neutras ---------- */
+.table-container {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.table {
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.table th {
+    background: var(--bg-secondary);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    border-bottom: 1px solid var(--border-glass);
+    padding: 0.85rem 1.1rem;
+    border-top: none;
+    white-space: nowrap;
+}
+
+.table td {
+    padding: 0.85rem 1.1rem;
+    border-bottom: 1px solid var(--border-muted);
+    vertical-align: middle;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.table tbody tr {
+    transition: var(--transition);
+}
+
+.table tbody tr:hover {
+    background: var(--bg-card-hover);
+}
+
+.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ---------- Badges de Status ---------- */
+.badge-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0.28rem 0.7rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.badge-agendado {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-glass);
+}
+
+.badge-concluido {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--accent-primary);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.badge-cancelado {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--accent-danger);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+/* ---------- Formul�rios Neutros ---------- */
+.form-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-lg);
+    padding: 2rem 2.5rem;
+    box-shadow: var(--shadow-sm);
+    max-width: 640px;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-label {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 0.45rem;
+    display: block;
+}
+
+.form-control,
+.form-select {
+    background: var(--bg-secondary) !important;
+    border: 1px solid var(--border-glass) !important;
+    border-radius: var(--radius-sm) !important;
+    color: var(--text-primary) !important;
+    padding: 0.6rem 0.9rem !important;
+    font-size: 0.9rem !important;
+    transition: var(--transition) !important;
+    width: 100%;
+}
+
+.form-control:focus,
+.form-select:focus {
+    outline: none !important;
+    border-color: var(--accent-primary) !important;
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2) !important;
+}
+
+.form-control::placeholder {
+    color: var(--text-muted) !important;
+}
+
+.form-select option {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.text-danger {
+    color: var(--accent-danger) !important;
+    font-size: 0.8rem;
+    margin-top: 4px;
+    display: block;
+}
+
+/* ---------- Kanban ---------- */
+.kanban-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .kanban-board {
+        grid-template-columns: 1fr;
+    }
+}
+
+.kanban-column {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-lg);
+    padding: 1rem;
+    min-height: 400px;
+}
+
+.kanban-column-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0 1rem;
+    border-bottom: 1px solid var(--border-muted);
+    margin-bottom: 1rem;
+}
+
+.kanban-column-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.kanban-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.kanban-count {
+    background: var(--bg-secondary);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 12px;
+    padding: 2px 8px;
+    border: 1px solid var(--border-glass);
+}
+
+.kanban-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    transition: var(--transition);
+    cursor: default;
+}
+
+.kanban-card:hover {
+    border-color: var(--text-muted);
+}
+
+.kanban-card-patient {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    margin-bottom: 0.4rem;
+}
+
+.kanban-card-info {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 0.25rem;
+}
+
+.kanban-card-price {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+}
+
+.kanban-card-actions {
+    display: flex;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+    flex-wrap: wrap;
+}
+
+/* ---------- Calend�rio Neutro ---------- */
+.calendar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.calendar-month {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+
+.calendar-day-name {
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.5rem 0;
+}
+
+.calendar-day {
+    background: var(--bg-secondary);
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+    min-height: 80px;
+    padding: 6px;
+    transition: var(--transition);
+    cursor: pointer;
+    position: relative;
+}
+
+.calendar-day:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-glass);
+}
+
+.calendar-day.today {
+    border-color: var(--accent-primary);
+}
+
+.calendar-day.has-events {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+}
+
+.calendar-day.empty {
+    background: transparent;
+    border-color: transparent;
+    cursor: default;
+}
+
+.calendar-day-number {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+.calendar-day.today .calendar-day-number {
+    color: var(--accent-primary);
+    font-weight: 700;
+}
+
+.calendar-event-pill {
+    font-size: 0.68rem;
+    font-weight: 500;
+    padding: 2px 5px;
+    border-radius: 2px;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: block;
+}
+
+.cal-agendado {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-glass);
+}
+
+.cal-concluido {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--accent-primary);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.cal-cancelado {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--accent-danger);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+/* Modal de dia do calend�rio */
+.day-detail-panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    min-height: 200px;
+}
+
+/* ---------- Footer ---------- */
+footer {
+    background: var(--bg-secondary) !important;
+    border-top: 1px solid var(--border-glass) !important;
+    color: var(--text-muted) !important;
+    font-size: 0.8rem;
+    padding: 1rem 0;
+}
+
+footer a {
+    color: var(--text-muted) !important;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--text-primary) !important;
+}
+
+/* ---------- Empty State ---------- */
+.empty-state {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    color: var(--text-muted);
+}
+
+.empty-state-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+}
+
+.empty-state p {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+/* ---------- Micro-anima��es ---------- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.anim-fade-up {
+    animation: fadeInUp 0.4s ease-out both;
+}
+
+.anim-delay-1 { animation-delay: 0.05s; }
+.anim-delay-2 { animation-delay: 0.10s; }
+.anim-delay-3 { animation-delay: 0.15s; }
+.anim-delay-4 { animation-delay: 0.20s; }
+
+/* ---------- Utilit�rios ---------- */
+.text-accent-primary { color: var(--accent-primary); }
+.text-muted-custom { color: var(--text-muted); }
+.text-secondary-custom { color: var(--text-secondary); }
+
+.divider {
+    border: none;
+    border-top: 1px solid var(--border-glass);
+    margin: 1.5rem 0;
+}
+
+/* Scrollbar customizada */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--border-glass);
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}
+
+.btn svg, .btn i, .btn [data-lucide] {
+    width: 1.1em !important;
+    height: 1.1em !important;
+    vertical-align: text-bottom;
+}

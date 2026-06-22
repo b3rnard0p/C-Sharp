@@ -1,0 +1,71 @@
+﻿@page
+@model ControleConsultas.Pages.Atendimentos.IndexModel
+@{
+    ViewData["Title"] = "Atendimentos";
+}
+
+<div class="anim-fade-up">
+    <div class="page-header">
+        <h1 class="page-title text-center"> <span>Atendimentos</span></h1>
+    </div>
+
+    @if (!Model.Atendimentos.Any())
+    {
+        <div class="glass-card">
+            <div class="empty-state">
+                <div class="empty-state-icon"><i data-lucide="inbox"></i></div>
+                <p>Nenhum atendimento cadastrado ainda.</p>
+                <a asp-page="/Atendimentos/Criar" class="btn btn-primary">Agendar primeira consulta</a>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Paciente</th>
+                        <th>Especialidade</th>
+                        <th>Data / Hora</th>
+                        <th>Valor</th>
+                        <th>Status</th>
+                        <th style="text-align: right;">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var (at, nome) in Model.Atendimentos)
+                    {
+                        var badgeCss = at.Status switch {
+                            ControleConsultas.Models.StatusAtendimento.Agendado  => "badge-agendado",
+                            ControleConsultas.Models.StatusAtendimento.Concluido => "badge-concluido",
+                            _ => "badge-cancelado"
+                        };
+                        var statusIcon = at.Status switch {
+                            ControleConsultas.Models.StatusAtendimento.Agendado  => "",
+                            ControleConsultas.Models.StatusAtendimento.Concluido => "",
+                            _ => ""
+                        };
+                        <tr>
+                            <td style="color: var(--text-muted); font-size: 0.82rem;">@at.Id</td>
+                            <td style="font-weight: 600; color: var(--text-primary);">@nome</td>
+                            <td>@at.Especialidade</td>
+                            <td style="font-size: 0.85rem;">@at.Horario.Value.ToString("dd/MM/yyyy HH:mm")</td>
+                            <td style="color: var(--accent-green); font-weight: 600;">
+                                @(at.Preco.Value > 0 ? $"R$ {at.Preco:N2}" : "—")
+                            </td>
+                            <td><span class="badge-status @badgeCss">@statusIcon @at.Status</span></td>
+                            <td style="text-align: right; white-space: nowrap;">
+                                <a class="btn btn-outline-info btn-sm" asp-page="/Atendimentos/Detalhes" asp-route-id="@at.Id"><i data-lucide="search" style="width:1em;height:1em;"></i></a>
+                                <a class="btn btn-outline-warning btn-sm" asp-page="/Atendimentos/Editar" asp-route-id="@at.Id"><i data-lucide="pencil" style="width:1em;height:1em;"></i></a>
+                                <a class="btn btn-outline-danger btn-sm" asp-page="/Atendimentos/Deletar" asp-route-id="@at.Id"
+                                   data-confirm="Tem certeza que deseja excluir esta consulta?"><i data-lucide="trash-2" style="width:1em;height:1em;"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

@@ -1,0 +1,67 @@
+﻿@page
+@model ControleConsultas.Pages.Atendimentos.CriarModel
+@{
+    ViewData["Title"] = "Nova Consulta";
+}
+
+<div class="anim-fade-up" style="max-width: 680px; margin: 0 auto;">
+    <div class="page-header position-relative d-flex justify-content-center align-items-center">
+        <a asp-page="/Atendimentos/Index" class="btn btn-secondary position-absolute start-0"><i data-lucide="arrow-left" style="width:1em;height:1em;"></i></a>
+        <h1 class="page-title text-center m-0"><span>Nova Consulta</span></h1>
+    </div>
+
+    <div class="form-card">
+        <form method="post" id="formCriarAtendimento">
+            <div asp-validation-summary="ModelOnly" class="text-danger" style="margin-bottom: 1rem; font-size: 0.85rem;"></div>
+
+            <div class="form-group">
+                <label asp-for="Atendimento.ClienteId" class="form-label"><i data-lucide="user"></i> Paciente</label>
+                <select asp-for="Atendimento.ClienteId" asp-items="Model.ClientesSelect" class="form-select" id="selectPaciente">
+                </select>
+                <span asp-validation-for="Atendimento.ClienteId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Atendimento.Especialidade" class="form-label"><i data-lucide="building" style="width:1em;height:1em;"></i> Especialidade</label>
+                <input asp-for="Atendimento.Especialidade" class="form-control"
+                       placeholder="Ex: Cardiologia, Clínica Geral, Ortopedia..." id="inputEspecialidade" />
+                <span asp-validation-for="Atendimento.Especialidade" class="text-danger"></span>
+            </div>
+
+            <div class="row g-3">
+                <div class="col-sm-7 form-group">
+                    <label asp-for="Atendimento.Horario" class="form-label"><i data-lucide="clock" style="width:1em;height:1em;"></i> Data e Horário</label>
+                    <input asp-for="Atendimento.Horario" type="datetime-local" class="form-control" id="inputHorario" />
+                    <span asp-validation-for="Atendimento.Horario" class="text-danger"></span>
+                </div>
+                <div class="col-sm-5 form-group">
+                    <label asp-for="Atendimento.Preco" class="form-label"><i data-lucide="circle-dollar-sign"></i> Valor (R$)</label>
+                    <input asp-for="Atendimento.Preco" type="number" step="0.01" min="0" class="form-control"
+                           placeholder="0,00" id="inputPreco" />
+                    <span asp-validation-for="Atendimento.Preco" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Atendimento.Status" class="form-label"><i data-lucide="pin"></i> Status</label>
+                <select asp-for="Atendimento.Status" class="form-select" id="selectStatus">
+                    <option value="Agendado"> Agendado</option>
+                    <option value="Concluido"> Concluído</option>
+                    <option value="Cancelado"> Cancelado</option>
+                </select>
+                <span asp-validation-for="Atendimento.Status" class="text-danger"></span>
+            </div>
+
+            <hr class="divider" />
+
+            <div class="d-flex gap-2 justify-content-center">
+                <button type="submit" class="btn btn-primary" id="btnSalvar"><i data-lucide="check-circle"></i> Cadastrar Consulta</button>
+                <a asp-page="/Atendimentos/Index" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

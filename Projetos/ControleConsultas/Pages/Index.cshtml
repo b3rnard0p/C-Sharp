@@ -1,0 +1,103 @@
+﻿@page
+@model ControleConsultas.Pages.IndexModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="anim-fade-up" style="padding-top: 0.5rem;">
+
+    <!-- Hero -->
+    <div style="margin-bottom: 2rem;">
+        <h1 class="page-title">Olá, Dr. <i data-lucide="hand" style="width:1.2em;height:1.2em;"></i> <br/><span>Aqui está seu resumo de hoje</span></h1>
+        <p class="text-muted-custom" style="font-size: 0.9rem; margin-top: 0.5rem;">
+            @DateTime.Now.ToString("dddd, dd 'de' MMMM 'de' yyyy", new System.Globalization.CultureInfo("pt-BR"))
+        </p>
+    </div>
+
+    <!-- Stat Cards -->
+    <div class="row g-3 mb-4">
+        <div class="col-6 col-md-3 anim-fade-up anim-delay-1">
+            <div class="stat-card">
+                <div class="stat-icon blue"><i data-lucide="users"></i></div>
+                <div>
+                    <div class="stat-value">@Model.TotalPacientes</div>
+                    <div class="stat-label">Pacientes</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3 anim-fade-up anim-delay-2">
+            <div class="stat-card">
+                <div class="stat-icon amber"><i data-lucide="calendar"></i></div>
+                <div>
+                    <div class="stat-value">@Model.TotalAgendados</div>
+                    <div class="stat-label">Agendados</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3 anim-fade-up anim-delay-3">
+            <div class="stat-card">
+                <div class="stat-icon green"><i data-lucide="check-circle"></i></div>
+                <div>
+                    <div class="stat-value">@Model.TotalConcluidos</div>
+                    <div class="stat-label">Concluídos</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3 anim-fade-up anim-delay-4">
+            <div class="stat-card">
+                <div class="stat-icon green"><i data-lucide="circle-dollar-sign"></i></div>
+                <div>
+                    <div class="stat-value" style="font-size: 1.4rem;">R$ @Model.ReceitaTotal.ToString("N2")</div>
+                    <div class="stat-label">Receita (Concluídos)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-3">
+        <!-- Próximas Consultas -->
+        <div class="col-12 anim-fade-up anim-delay-2">
+            <div class="glass-card" style="padding: 1.5rem;">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2 style="font-size: 1rem; font-weight: 700; margin: 0; color: var(--text-primary);">
+                        <i data-lucide="clipboard-list"></i> Próximas Consultas
+                    </h2>
+                    <a asp-page="/Atendimentos/Index" class="btn btn-secondary btn-sm">Ver todas</a>
+                </div>
+
+                @if (Model.ProximasConsultas.Any())
+                {
+                    <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                        @foreach (var (at, nome) in Model.ProximasConsultas)
+                        {
+                            <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 1rem; background: rgba(255,255,255,0.03); border: 1px solid var(--border-muted); border-radius: 10px; gap: 1rem;">
+                                <div style="display: flex; align-items: center; gap: 10px; min-width: 0;">
+                                    <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--accent-primary); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0;"><i data-lucide="user"></i></div>
+                                    <div style="min-width: 0;">
+                                        <div style="font-weight: 600; font-size: 0.88rem; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">@nome</div>
+                                        <div style="font-size: 0.75rem; color: var(--text-muted);">@at.Especialidade</div>
+                                    </div>
+                                </div>
+                                <div style="text-align: right; flex-shrink: 0;">
+                                    <div style="font-size: 0.82rem; font-weight: 600; color: var(--text-primary);">@at.Horario.Value.ToString("dd/MM HH:mm")</div>
+                                    @if (at.Preco.Value > 0)
+                                    {
+                                        <div style="font-size: 0.75rem; color: var(--accent-green);">R$ @at.Preco.Value.ToString("N2")</div>
+                                    }
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <div class="empty-state">
+                        <div class="empty-state-icon"><i data-lucide="inbox"></i></div>
+                        <p>Nenhuma consulta agendada para os próximos dias.</p>
+                        <a asp-page="/Atendimentos/Criar" class="btn btn-primary btn-sm">Agendar Consulta</a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

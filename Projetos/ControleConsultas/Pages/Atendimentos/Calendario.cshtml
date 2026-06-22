@@ -1,0 +1,183 @@
+﻿@page
+@model ControleConsultas.Pages.Atendimentos.CalendarioModel
+@{
+    ViewData["Title"] = "Calendário de Consultas";
+    var hoje = DateTime.Today;
+    var mesPrev = Model.PrimeiroDia.AddMonths(-1);
+    var mesProx = Model.PrimeiroDia.AddMonths(1);
+    int diasNoMes = DateTime.DaysInMonth(Model.Ano, Model.Mes);
+    // Converter dia da semana: 0=Dom, adapta para grade começa no Seg (0=Seg ... 6=Dom)
+    int offsetInicio = ((int)Model.PrimeiroDia.DayOfWeek + 6) % 7; // Segunda = 0
+    string[] diasSemana = { "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom" };
+}
+
+<div class="anim-fade-up">
+    <div class="page-header">
+        <h1 class="page-title"> <span>Calendário</span> de Consultas</h1>
+    </div>
+
+    <div class="row g-3">
+        <!-- Calendário principal -->
+        <div class="col-lg-8">
+            <div class="glass-card" style="padding: 1.5rem;">
+                <!-- Navegação do mês -->
+                <div class="calendar-nav">
+                    <a asp-page="/Atendimentos/Calendario" asp-route-ano="@mesPrev.Year" asp-route-mes="@mesPrev.Month"
+                       class="btn btn-secondary btn-sm"><i data-lucide="arrow-left" style="width:1em;height:1em;"></i> Anterior</a>
+                    <span class="calendar-month" style="text-transform: capitalize;">@Model.MesNome</span>
+                    <a asp-page="/Atendimentos/Calendario" asp-route-ano="@mesProx.Year" asp-route-mes="@mesProx.Month"
+                       class="btn btn-secondary btn-sm">Próximo <i data-lucide="arrow-right" style="width:1em;height:1em;"></i></a>
+                </div>
+
+                <!-- Grade do calendário -->
+                <div class="calendar-grid">
+                    @foreach (var d in diasSemana)
+                    {
+                        <div class="calendar-day-name">@d</div>
+                    }
+
+                    @* Células vazias antes do dia 1 *@
+                    @for (int i = 0; i < offsetInicio; i++)
+                    {
+                        <div class="calendar-day empty"></div>
+                    }
+
+                    @* Dias do mês *@
+                    @for (int dia = 1; dia <= diasNoMes; dia++)
+                    {
+                        var isHoje = (Model.Ano == hoje.Year && Model.Mes == hoje.Month && dia == hoje.Day);
+                        var temEventos = Model.EventosPorDia.ContainsKey(dia);
+                        var cssClass = "calendar-day" + (isHoje ? " today" : "") + (temEventos ? " has-events" : "");
+                        <div class="@cssClass" onclick="mostrarDia(@dia)" id="dia-@dia">
+                            <div class="calendar-day-number">@dia</div>
+                            @if (temEventos)
+                            {
+                                @foreach (var (at, nome) in Model.EventosPorDia[dia].Take(3))
+                                {
+                                    var calCss = at.Status switch {
+                                        ControleConsultas.Models.StatusAtendimento.Agendado => "cal-agendado",
+                                        ControleConsultas.Models.StatusAtendimento.Concluido => "cal-concluido",
+                                        _ => "cal-cancelado"
+                                    };
+                                    <span class="calendar-event-pill @calCss">@at.Horario.Value.ToString("HH:mm") @nome</span>
+                                }
+                                @if (Model.EventosPorDia[dia].Count > 3)
+                                {
+                                    <span style="font-size: 0.65rem; color: var(--text-muted);">+@(Model.EventosPorDia[dia].Count - 3) mais</span>
+                                }
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Painel lateral: detalhe do dia -->
+        <div class="col-lg-4">
+            <div class="day-detail-panel" id="dayDetailPanel">
+                <h3 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">
+                    <i data-lucide="clipboard-list"></i> Consultas do Dia
+                </h3>
+                <div id="dayDetailContent">
+                    <div class="empty-state" style="padding: 1.5rem 0;">
+                        <div class="empty-state-icon" style="font-size: 2rem;"><i data-lucide="mouse-pointer-click"></i></div>
+                        <p>Clique em um dia no calendário para ver as consultas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Legenda -->
+            <div class="glass-card" style="padding: 1rem; margin-top: 1rem;">
+                <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px;">Legenda</div>
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span class="calendar-event-pill cal-agendado" style="min-width: 12px; min-height: 12px; padding: 0; border-radius: 3px; display: inline-block;"></span>
+                        <span style="font-size: 0.82rem; color: var(--text-secondary);">Agendado</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span class="calendar-event-pill cal-concluido" style="min-width: 12px; min-height: 12px; padding: 0; border-radius: 3px; display: inline-block;"></span>
+                        <span style="font-size: 0.82rem; color: var(--text-secondary);">Concluído</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span class="calendar-event-pill cal-cancelado" style="min-width: 12px; min-height: 12px; padding: 0; border-radius: 3px; display: inline-block;"></span>
+                        <span style="font-size: 0.82rem; color: var(--text-secondary);">Cancelado</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+<script>
+// Dados dos eventos injetados do servidor
+const eventos = {
+@foreach (var kvp in Model.EventosPorDia)
+{
+    @:@kvp.Key: [
+    @foreach (var (at, nome) in kvp.Value)
+    {
+        @:{
+            @:id: @at.Id,
+            @:nome: "@nome.Replace("\"","&quot;")",
+            @:especialidade: "@at.Especialidade.Replace("\"","&quot;")",
+            @:horario: "@at.Horario.Value.ToString("HH:mm")",
+            @:status: "@at.Status",
+            @:preco: @at.Preco.Value.ToString("F2", System.Globalization.CultureInfo.InvariantCulture)
+        @:},
+    }
+    @:],
+}
+};
+
+let diaAtivo = null;
+
+function mostrarDia(dia) {
+    // Remove destaque do dia anterior
+    if (diaAtivo !== null) {
+        const prev = document.getElementById('dia-' + diaAtivo);
+        if (prev) prev.style.boxShadow = '';
+    }
+    diaAtivo = dia;
+    const el = document.getElementById('dia-' + dia);
+    if (el) el.style.boxShadow = '0 0 0 2px var(--text-primary)';
+
+    const panel = document.getElementById('dayDetailContent');
+    const lista = eventos[dia];
+
+    if (!lista || lista.length === 0) {
+        panel.innerHTML = `
+            <div class="empty-state" style="padding: 1.5rem 0;">
+                <div class="empty-state-icon" style="font-size: 2rem;"><i data-lucide="inbox"></i></div>
+                <p>Nenhuma consulta neste dia.</p>
+                <a href="/Atendimentos/Criar" class="btn btn-primary btn-sm">+ Agendar</a>
+            </div>`;
+        return;
+    }
+
+    let html = `<div style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.75rem;">Dia ${dia} — ${lista.length} consulta(s)</div>`;
+    lista.forEach(ev => {
+        const badgeCls = ev.status === 'Agendado' ? 'badge-agendado' : ev.status === 'Concluido' ? 'badge-concluido' : 'badge-cancelado';
+        const precoHtml = ev.Preco.Value > 0 ? `<div style="font-size:0.8rem; color: var(--accent-green); font-weight: 600; margin-top: 4px;">R$ ${ev.preco.toFixed(2).replace('.',',')}</div>` : '';
+        html += `
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-muted); border-radius: 10px; padding: 0.75rem; margin-bottom: 0.6rem;">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; gap: 0.5rem;">
+                    <div>
+                        <div style="font-weight: 600; font-size: 0.88rem; color: var(--text-primary);"><i data-lucide="user"></i> ${ev.nome}</div>
+                        <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 2px;"><i data-lucide="building" style="width:1em;height:1em;"></i> ${ev.especialidade}</div>
+                    </div>
+                    <span class="badge-status ${badgeCls}">${ev.status}</span>
+                </div>
+                <div style="font-size: 0.78rem; color: var(--text-primary); margin-top: 6px; font-weight: 600;"><i data-lucide="clock" style="width:1em;height:1em;"></i> ${ev.horario}</div>
+                ${precoHtml}
+                <div style="margin-top: 0.6rem;">
+                    <a href="/Atendimentos/Editar?id=${ev.id}" class="btn btn-outline-warning btn-sm"><i data-lucide="pencil" style="width:1em;height:1em;"></i> Editar</a>
+                    <a href="/Atendimentos/Detalhes?id=${ev.id}" class="btn btn-outline-info btn-sm"><i data-lucide="search" style="width:1em;height:1em;"></i> Ver</a>
+                </div>
+            </div>`;
+    });
+    panel.innerHTML = html;
+    if (typeof lucide !== 'undefined') { lucide.createIcons(); }
+}
+</script>
+}

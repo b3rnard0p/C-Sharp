@@ -1,0 +1,65 @@
+@page
+@model ControleConsultas.Pages.Clientes.IndexModel
+@{
+    ViewData["Title"] = "Pacientes";
+}
+
+<div class="anim-fade-up">
+    <div class="page-header">
+        <h1 class="page-title m-0"> <span>Pacientes</span></h1>
+        <a asp-page="/Clientes/Criar" class="btn btn-primary position-absolute end-0"><i data-lucide="plus" style="width:1em;height:1em;"></i> Novo Paciente</a>
+    </div>
+
+    @if (TempData["Erro"] != null)
+    {
+        <div class="alert alert-danger d-flex align-items-center mb-4" role="alert" style="border-radius: var(--radius-md); font-size: 0.9rem;">
+            <i data-lucide="alert-circle" style="width: 1.2em; height: 1.2em; margin-right: 8px;"></i>
+            @TempData["Erro"]
+        </div>
+    }
+
+    @if (!Model.Clientes.Any())
+    {
+        <div class="glass-card">
+            <div class="empty-state">
+                <div class="empty-state-icon"><i data-lucide="users"></i></div>
+                <p>Nenhum paciente cadastrado ainda.</p>
+                <a asp-page="/Clientes/Criar" class="btn btn-primary">Cadastrar primeiro paciente</a>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nome</th>
+                        <th style="text-align: right;">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var cliente in Model.Clientes)
+                    {
+                        <tr>
+                            <td style="color: var(--text-muted); font-size: 0.82rem;">@cliente.Id</td>
+                            <td style="font-weight: 600; color: var(--text-primary);">
+                                <span style="display: inline-flex; align-items: center; gap: 8px;">
+                                    <span style="width: 32px; height: 32px; border-radius: 50%; background: var(--accent-primary); display: inline-flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0;"><i data-lucide="user"></i></span>
+                                    @cliente.Nome
+                                </span>
+                            </td>
+                            <td style="text-align: right; white-space: nowrap;">
+                                <a class="btn btn-outline-info btn-sm" asp-page="/Clientes/Detalhes" asp-route-id="@cliente.Id"><i data-lucide="search" style="width:1em;height:1em;"></i></a>
+                                <a class="btn btn-outline-warning btn-sm" asp-page="/Clientes/Editar" asp-route-id="@cliente.Id"><i data-lucide="pencil" style="width:1em;height:1em;"></i></a>
+                                <a class="btn btn-outline-danger btn-sm" asp-page="/Clientes/Deletar" asp-route-id="@cliente.Id"
+                                   data-confirm="Excluir o paciente @cliente.Nome?"><i data-lucide="trash-2" style="width:1em;height:1em;"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

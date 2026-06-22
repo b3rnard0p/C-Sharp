@@ -1,0 +1,35 @@
+﻿@page
+@model ControleConsultas.Pages.Clientes.CriarModel
+@{
+    ViewData["Title"] = "Novo Paciente";
+}
+
+<div class="anim-fade-up" style="max-width: 520px; margin: 0 auto;">
+    <div class="page-header position-relative d-flex justify-content-center align-items-center">
+        <a asp-page="/Clientes/Index" class="btn btn-secondary position-absolute start-0"><i data-lucide="arrow-left" style="width:1em;height:1em;"></i></a>
+        <h1 class="page-title text-center m-0"><span>Novo Paciente</span></h1>
+    </div>
+
+    <div class="form-card">
+        <form method="post" id="formCriarCliente">
+            <div asp-validation-summary="ModelOnly" class="text-danger" style="margin-bottom: 1rem; font-size: 0.85rem;"></div>
+
+            <div class="form-group">
+                <label asp-for="Cliente.Nome" class="form-label">Nome completo</label>
+                <input asp-for="Cliente.Nome" class="form-control" placeholder="Ex: João da Silva" id="inputNome" autofocus />
+                <span asp-validation-for="Cliente.Nome" class="text-danger"></span>
+            </div>
+
+            <hr class="divider" />
+
+            <div class="d-flex gap-2 justify-content-center">
+                <button type="submit" class="btn btn-primary"><i data-lucide="check-circle"></i> Cadastrar Paciente</button>
+                <a asp-page="/Clientes/Index" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

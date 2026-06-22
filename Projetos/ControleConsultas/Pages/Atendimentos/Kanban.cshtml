@@ -1,0 +1,135 @@
+﻿@page
+@model ControleConsultas.Pages.Atendimentos.KanbanModel
+@{
+    ViewData["Title"] = "Kanban de Atendimentos";
+}
+
+<div class="anim-fade-up">
+    <div class="page-header">
+        <h1 class="page-title"><span>Kanban</span> de Atendimentos</h1>
+    </div>
+
+    <div class="kanban-board">
+
+        <!-- AGENDADO -->
+        <div class="kanban-column">
+            <div class="kanban-column-header">
+                <div class="kanban-column-title">
+                    <span class="kanban-dot" style="background: var(--text-primary);"></span>
+                    <span style="color: var(--text-primary);">Agendado</span>
+                </div>
+                <span class="kanban-count">@Model.Agendados.Count</span>
+            </div>
+
+            @if (!Model.Agendados.Any())
+            {
+                <div class="empty-state" style="padding: 2rem 1rem;">
+                    <div class="empty-state-icon" style="font-size: 2rem;"><i data-lucide="inbox"></i></div>
+                    <p style="font-size: 0.8rem;">Nenhum agendado</p>
+                </div>
+            }
+            @foreach (var (at, nome) in Model.Agendados)
+            {
+                <div class="kanban-card">
+                    <div class="kanban-card-patient"><i data-lucide="user"></i> @nome</div>
+                    <div class="kanban-card-info"><i data-lucide="building" style="width:1em;height:1em;"></i> @at.Especialidade</div>
+                    <div class="kanban-card-info"><i data-lucide="clock" style="width:1em;height:1em;"></i> @at.Horario.Value.ToString("dd/MM/yyyy HH:mm")</div>
+                    @if (at.Preco.Value > 0)
+                    {
+                        <div class="kanban-card-price">R$ @at.Preco.Value.ToString("N2")</div>
+                    }
+                    <div class="kanban-card-actions">
+                        <a asp-page="/Atendimentos/Editar" asp-route-id="@at.Id" class="btn btn-outline-warning btn-sm"><i data-lucide="pencil" style="width:1em;height:1em;"></i> Editar</a>
+                        <form method="post" asp-page-handler="MudarStatus" style="display:inline;">
+                            <input type="hidden" name="id" value="@at.Id" />
+                            <input type="hidden" name="novoStatus" value="Concluido" />
+                            <button type="submit" class="btn btn-success btn-sm"><i data-lucide="check-circle"></i> Concluir</button>
+                        </form>
+                        <form method="post" asp-page-handler="MudarStatus" style="display:inline;">
+                            <input type="hidden" name="id" value="@at.Id" />
+                            <input type="hidden" name="novoStatus" value="Cancelado" />
+                            <button type="submit" class="btn btn-danger btn-sm"><i data-lucide="x"></i> Cancelar</button>
+                        </form>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <!-- CONCLUÍDO -->
+        <div class="kanban-column">
+            <div class="kanban-column-header">
+                <div class="kanban-column-title">
+                    <span class="kanban-dot" style="background: var(--accent-green);"></span>
+                    <span style="color: var(--accent-green);">Concluído</span>
+                </div>
+                <span class="kanban-count">@Model.Concluidos.Count</span>
+            </div>
+
+            @if (!Model.Concluidos.Any())
+            {
+                <div class="empty-state" style="padding: 2rem 1rem;">
+                    <div class="empty-state-icon" style="font-size: 2rem;"><i data-lucide="check-circle"></i></div>
+                    <p style="font-size: 0.8rem;">Nenhum concluído</p>
+                </div>
+            }
+            @foreach (var (at, nome) in Model.Concluidos)
+            {
+                <div class="kanban-card" style="border-left: 3px solid var(--accent-green);">
+                    <div class="kanban-card-patient"><i data-lucide="user"></i> @nome</div>
+                    <div class="kanban-card-info"><i data-lucide="building" style="width:1em;height:1em;"></i> @at.Especialidade</div>
+                    <div class="kanban-card-info"><i data-lucide="clock" style="width:1em;height:1em;"></i> @at.Horario.Value.ToString("dd/MM/yyyy HH:mm")</div>
+                    @if (at.Preco.Value > 0)
+                    {
+                        <div class="kanban-card-price">R$ @at.Preco.Value.ToString("N2")</div>
+                    }
+                    <div class="kanban-card-actions">
+                        <a asp-page="/Atendimentos/Detalhes" asp-route-id="@at.Id" class="btn btn-outline-info btn-sm"><i data-lucide="search" style="width:1em;height:1em;"></i> Ver</a>
+                        <form method="post" asp-page-handler="MudarStatus" style="display:inline;">
+                            <input type="hidden" name="id" value="@at.Id" />
+                            <input type="hidden" name="novoStatus" value="Agendado" />
+                            <button type="submit" class="btn btn-secondary btn-sm"><i data-lucide="corner-down-left"></i> Reagendar</button>
+                        </form>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <!-- CANCELADO -->
+        <div class="kanban-column">
+            <div class="kanban-column-header">
+                <div class="kanban-column-title">
+                    <span class="kanban-dot" style="background: var(--accent-red);"></span>
+                    <span style="color: var(--accent-red);">Cancelado</span>
+                </div>
+                <span class="kanban-count">@Model.Cancelados.Count</span>
+            </div>
+
+            @if (!Model.Cancelados.Any())
+            {
+                <div class="empty-state" style="padding: 2rem 1rem;">
+                    <div class="empty-state-icon" style="font-size: 2rem;"><i data-lucide="ban"></i></div>
+                    <p style="font-size: 0.8rem;">Nenhum cancelado</p>
+                </div>
+            }
+            @foreach (var (at, nome) in Model.Cancelados)
+            {
+                <div class="kanban-card" style="border-left: 3px solid var(--accent-red); opacity: 0.8;">
+                    <div class="kanban-card-patient"><i data-lucide="user"></i> @nome</div>
+                    <div class="kanban-card-info"><i data-lucide="building" style="width:1em;height:1em;"></i> @at.Especialidade</div>
+                    <div class="kanban-card-info"><i data-lucide="clock" style="width:1em;height:1em;"></i> @at.Horario.Value.ToString("dd/MM/yyyy HH:mm")</div>
+                    <div class="kanban-card-actions">
+                        <form method="post" asp-page-handler="MudarStatus" style="display:inline;">
+                            <input type="hidden" name="id" value="@at.Id" />
+                            <input type="hidden" name="novoStatus" value="Agendado" />
+                            <button type="submit" class="btn btn-outline-info btn-sm"><i data-lucide="corner-down-left"></i> Reagendar</button>
+                        </form>
+                        <a asp-page="/Atendimentos/Deletar" asp-route-id="@at.Id"
+                           data-confirm="Excluir permanentemente?"
+                           class="btn btn-outline-danger btn-sm"><i data-lucide="trash-2" style="width:1em;height:1em;"></i> Excluir</a>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+</div>

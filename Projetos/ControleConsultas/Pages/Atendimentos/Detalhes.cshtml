@@ -1,0 +1,62 @@
+﻿@page
+@model ControleConsultas.Pages.Atendimentos.DetalhesModel
+@{
+    ViewData["Title"] = "Detalhes da Consulta";
+    var badgeCss = Model.Atendimento.Status switch {
+        ControleConsultas.Models.StatusAtendimento.Agendado  => "badge-agendado",
+        ControleConsultas.Models.StatusAtendimento.Concluido => "badge-concluido",
+        _ => "badge-cancelado"
+    };
+}
+
+<div class="anim-fade-up" style="max-width: 600px; margin: 0 auto;">
+    <div class="page-header position-relative d-flex justify-content-center align-items-center">
+        <a asp-page="/Atendimentos/Index" class="btn btn-secondary position-absolute start-0"><i data-lucide="arrow-left" style="width:1em;height:1em;"></i></a>
+        <h1 class="page-title text-center m-0"><span>Detalhes</span> da Consulta</h1>
+    </div>
+
+    <div class="glass-card">
+        <!-- Header do card -->
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-muted);">
+            <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--accent-primary); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0;"><i data-lucide="user"></i></div>
+            <div>
+                <div style="font-size: 1.2rem; font-weight: 700; color: var(--text-primary);">@Model.NomePaciente</div>
+                <div style="font-size: 0.85rem; color: var(--text-muted);">@Model.Atendimento.Especialidade</div>
+            </div>
+            <div style="margin-left: auto;">
+                <span class="badge-status @badgeCss">@Model.Atendimento.Status</span>
+            </div>
+        </div>
+
+        <!-- Detalhes -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+            <div>
+                <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 4px;">ID</div>
+                <div style="font-weight: 600; color: var(--text-primary);">#@Model.Atendimento.Id</div>
+            </div>
+            <div>
+                <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 4px;">Horário</div>
+                <div style="font-weight: 600; color: var(--text-primary);"><i data-lucide="clock" style="width:1em;height:1em;"></i> @Model.Atendimento.Horario.Value.ToString("dd/MM/yyyy HH:mm")</div>
+            </div>
+            <div>
+                <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 4px;">Especialidade</div>
+                <div style="font-weight: 600; color: var(--text-primary);"><i data-lucide="building" style="width:1em;height:1em;"></i> @Model.Atendimento.Especialidade</div>
+            </div>
+            <div>
+                <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 4px;">Valor</div>
+                <div style="font-weight: 700; color: var(--accent-green); font-size: 1.1rem;">
+                    @(Model.Atendimento.Preco.Value > 0 ? $"R$ {Model.Atendimento.Preco:N2}" : "Não informado")
+                </div>
+            </div>
+        </div>
+
+        <hr class="divider" />
+
+        <div class="d-flex gap-2 flex-wrap justify-content-center">
+            <a asp-page="/Atendimentos/Editar" asp-route-id="@Model.Atendimento.Id" class="btn btn-warning"><i data-lucide="pencil" style="width:1em;height:1em;"></i> Editar</a>
+            <a asp-page="/Atendimentos/Deletar" asp-route-id="@Model.Atendimento.Id"
+               data-confirm="Excluir esta consulta permanentemente?"
+               class="btn btn-danger"><i data-lucide="trash-2" style="width:1em;height:1em;"></i> Excluir</a>
+        </div>
+    </div>
+</div>

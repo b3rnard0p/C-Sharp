@@ -1,0 +1,42 @@
+﻿@page
+@model ControleConsultas.Pages.Clientes.DetalhesModel
+@{
+    ViewData["Title"] = "Detalhes do Paciente";
+}
+
+<div class="anim-fade-up" style="max-width: 520px; margin: 0 auto;">
+    <div class="page-header position-relative d-flex justify-content-center align-items-center">
+        <a asp-page="/Clientes/Index" class="btn btn-secondary position-absolute start-0"><i data-lucide="arrow-left" style="width:1em;height:1em;"></i></a>
+        <h1 class="page-title text-center m-0"><span>Detalhes</span> do Paciente</h1>
+    </div>
+
+    <div class="glass-card">
+        <div style="display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-muted);">
+            <div style="width: 64px; height: 64px; border-radius: 50%; background: var(--accent-primary); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; flex-shrink: 0;"><i data-lucide="user"></i></div>
+            <div>
+                <div style="font-size: 1.3rem; font-weight: 700; color: var(--text-primary);">@Model.Cliente.Nome</div>
+                <div style="font-size: 0.82rem; color: var(--text-muted);">Paciente #@Model.Cliente.Id</div>
+            </div>
+        </div>
+
+        <div style="display: grid; gap: 1rem;">
+            <div>
+                <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 4px;">ID</div>
+                <div style="font-weight: 600; color: var(--text-primary);">#@Model.Cliente.Id</div>
+            </div>
+            <div>
+                <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 4px;">Nome</div>
+                <div style="font-weight: 600; color: var(--text-primary);">@Model.Cliente.Nome</div>
+            </div>
+        </div>
+
+        <hr class="divider" />
+
+        <div class="d-flex gap-2 flex-wrap justify-content-center">
+            <a asp-page="/Clientes/Editar" asp-route-id="@Model.Cliente.Id" class="btn btn-warning"><i data-lucide="pencil" style="width:1em;height:1em;"></i> Editar</a>
+            <a asp-page="/Clientes/Deletar" asp-route-id="@Model.Cliente.Id"
+               data-confirm="Excluir o paciente @Model.Cliente.Nome?"
+               class="btn btn-danger"><i data-lucide="trash-2" style="width:1em;height:1em;"></i> Excluir</a>
+        </div>
+    </div>
+</div>

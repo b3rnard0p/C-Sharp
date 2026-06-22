@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ControleConsultas — Sistema de agendamento para médicos autônomos" />
+    <title>@ViewData["Title"] — ControleConsultas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ControleConsultas.styles.css" asp-append-version="true" />
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
+    </script>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <header>
+        <nav class="navbar navbar-expand-md">
+            <div class="container flex-grow-1">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">
+                    <span class="brand-icon"><i data-lucide="stethoscope"></i></span>
+                    ControleConsultas
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation"
+                        style="border-color: rgba(255,255,255,0.15); color: var(--text-secondary);">
+                    <span style="font-size:1.2rem"><i data-lucide="menu"></i></span>
+                </button>
+                <div class="navbar-collapse collapse d-md-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1 ms-3">
+                        <li class="nav-item">
+                            <a class="nav-link @(Context.Request.Path == "/Index" || Context.Request.Path == "/" ? "active-nav" : "")" asp-area="" asp-page="/Index">
+                                <i data-lucide="home"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(Context.Request.Path.Value.Equals("/Atendimentos", StringComparison.OrdinalIgnoreCase) || Context.Request.Path.Value.StartsWith("/Atendimentos/Index") || Context.Request.Path.Value.StartsWith("/Atendimentos/Criar") || Context.Request.Path.Value.StartsWith("/Atendimentos/Editar") || Context.Request.Path.Value.StartsWith("/Atendimentos/Detalhes") || Context.Request.Path.Value.StartsWith("/Atendimentos/Deletar") ? "active-nav" : "")" asp-area="" asp-page="/Atendimentos/Index">
+                                <i data-lucide="clipboard-list"></i> Atendimentos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(Context.Request.Path.Value.StartsWith("/Atendimentos/Kanban") ? "active-nav" : "")" asp-area="" asp-page="/Atendimentos/Kanban">
+                                <i data-lucide="pin"></i> Kanban
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(Context.Request.Path.Value.StartsWith("/Atendimentos/Calendario") ? "active-nav" : "")" asp-area="" asp-page="/Atendimentos/Calendario">
+                                <i data-lucide="calendar"></i> Calendário
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(Context.Request.Path.Value.StartsWith("/Clientes") ? "active-nav" : "")" asp-area="" asp-page="/Clientes/Index">
+                                <i data-lucide="users"></i> Pacientes
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <a asp-area="" asp-page="/Atendimentos/Criar" class="btn btn-primary btn-sm ms-2">
+                            <i data-lucide="plus" style="width:1em;height:1em;"></i> Nova Consulta
+                        </a>
+                    </div>
+                    <div class="d-flex align-items-center ms-md-3 mt-3 mt-md-0">
+                        <button id="themeToggle" class="btn btn-secondary btn-sm" title="Alternar Tema" style="padding: 0.4rem 0.6rem;">
+                            <i data-lucide="sun" id="themeIcon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container flex-grow-1">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="mt-auto">
+        <div class="container d-flex justify-content-between align-items-center">
+            <span>&copy; 2026 ControleConsultas</span>
+            <span class="text-muted-custom">Sistema de Agendamento Médico</span>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="modal fade anim-fade-up" id="confirmModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="background: var(--bg-primary); border: 1px solid var(--border-glass); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);">
+                <div class="modal-header" style="border-bottom: 1px solid var(--border-glass);">
+                    <h5 class="modal-title" style="color: var(--text-primary); font-weight: 700; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;">
+                        <i data-lucide="alert-triangle" class="text-warning"></i> <span id="confirmModalTitle">Confirmação</span>
+                    </h5>
+                </div>
+                <div class="modal-body" style="color: var(--text-secondary); padding: 1.5rem;" id="confirmModalText">
+                    Tem certeza?
+                </div>
+                <div class="modal-footer" style="border-top: 1px solid var(--border-glass); padding: 1rem 1.5rem;">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" id="confirmModalBtn">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
