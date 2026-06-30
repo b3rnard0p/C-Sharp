@@ -1,0 +1,53 @@
+@page
+@model TrabalhoFinal.Pages.Emprestimos.CriarModel
+@{
+    ViewData["Title"] = "Novo Empréstimo";
+}
+
+<div class="anim-fade-up" style="max-width: 600px; margin: 0 auto;">
+    <div class="page-header position-relative d-flex justify-content-center align-items-center">
+        <a asp-page="/Emprestimos/Index" class="btn btn-secondary position-absolute start-0" title="Voltar"><i data-lucide="arrow-left" style="width:1em;height:1em;"></i></a>
+        <h1 class="page-title text-center m-0">Novo <span>Empréstimo</span></h1>
+    </div>
+
+    <div class="form-card">
+        @if (!Model.EquipamentosDisponiveis.Any())
+        {
+            <div class="alert alert-warning text-center">
+                <i data-lucide="alert-triangle" style="width: 2em; height: 2em; margin-bottom: 10px;"></i>
+                <p class="m-0">Não há equipamentos disponíveis para empréstimo no momento.</p>
+            </div>
+        }
+        else
+        {
+            <form method="post" id="formCriarEmprestimo">
+                <div class="mb-4">
+                    <label asp-for="Emprestimo.EquipamentoId" class="form-label font-weight-bold">Equipamento</label>
+                    <select asp-for="Emprestimo.EquipamentoId" asp-items="Model.EquipamentosDisponiveis" class="form-select" autofocus>
+                        <option value="">Selecione um equipamento...</option>
+                    </select>
+                    <span asp-validation-for="Emprestimo.EquipamentoId" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-4">
+                    <label asp-for="Emprestimo.EmailResponsavel" class="form-label font-weight-bold">E-mail do Responsável</label>
+                    <input asp-for="Emprestimo.EmailResponsavel" type="email" class="form-control" placeholder="Ex: colaborador@empresa.com" />
+                    <span asp-validation-for="Emprestimo.EmailResponsavel" class="text-danger small"></span>
+                </div>
+
+                <hr class="divider mb-4" />
+
+                <div class="d-flex justify-content-end gap-2">
+                    <a asp-page="/Emprestimos/Index" class="btn btn-secondary">Cancelar</a>
+                    <button type="submit" class="btn btn-primary d-flex align-items-center gap-2">
+                        <i data-lucide="save" style="width: 1em; height: 1em;"></i> Registrar
+                    </button>
+                </div>
+            </form>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

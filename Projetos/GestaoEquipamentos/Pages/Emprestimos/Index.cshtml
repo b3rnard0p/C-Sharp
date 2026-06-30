@@ -1,0 +1,97 @@
+@page
+@model TrabalhoFinal.Pages.Emprestimos.IndexModel
+@{
+    ViewData["Title"] = "Empréstimos";
+}
+
+<div class="anim-fade-up">
+    <div class="page-header position-relative mb-4 d-flex justify-content-between align-items-center">
+        <h1 class="page-title m-0" style="font-weight: 700;">Gestão de <span>Empréstimos</span></h1>
+        <div class="d-flex gap-2">
+            <a asp-page="/Emprestimos/Criar" class="btn btn-primary"><i data-lucide="plus" style="width:1em;height:1em;"></i> Novo Empréstimo</a>
+        </div>
+    </div>
+
+    @if (TempData["Sucesso"] != null)
+    {
+        <div class="alert alert-success d-flex align-items-center mb-4" role="alert" style="border-radius: var(--radius-md); font-size: 0.9rem;">
+            <i data-lucide="check-circle" style="width: 1.2em; height: 1.2em; margin-right: 8px;"></i>
+            @TempData["Sucesso"]
+        </div>
+    }
+
+    @if (!Model.Emprestimos.Any())
+    {
+        <div class="glass-card">
+            <div class="empty-state text-center" style="padding: 3rem 1rem;">
+                <div class="empty-state-icon" style="font-size: 3rem; color: var(--text-muted); margin-bottom: 1rem;"><i data-lucide="inbox"></i></div>
+                <p style="color: var(--text-muted); font-size: 1.1rem;">Nenhum empréstimo ativo no momento.</p>
+                <a asp-page="/Emprestimos/Criar" class="btn btn-primary mt-3">Registrar Empréstimo</a>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="glass-card" style="padding: 0; overflow: hidden;">
+            <div class="table-responsive">
+                <table class="table table-hover m-0" style="vertical-align: middle;">
+                    <thead>
+                        <tr>
+                            <th style="padding: 1rem; border-bottom: 1px solid var(--border-muted);">Equipamento</th>
+                            <th style="padding: 1rem; border-bottom: 1px solid var(--border-muted);">Responsável (E-mail)</th>
+                            <th style="padding: 1rem; border-bottom: 1px solid var(--border-muted);">Data do Empréstimo</th>
+                            <th style="padding: 1rem; border-bottom: 1px solid var(--border-muted);">Status</th>
+                            <th style="text-align: right; padding: 1rem; border-bottom: 1px solid var(--border-muted);">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Emprestimos)
+                        {
+                            <tr>
+                                <td style="padding: 1rem; font-weight: 600; color: var(--text-primary);">
+                                    <span style="display: inline-flex; align-items: center; gap: 10px;">
+                                        <span style="width: 32px; height: 32px; border-radius: 50%; background: var(--accent-primary); display: inline-flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0; color: white;"><i data-lucide="monitor"></i></span>
+                                        @item.Equipamento.Nome
+                                    </span>
+                                </td>
+                                <td style="padding: 1rem;">
+                                    <div style="display: flex; align-items: center; gap: 6px; font-size: 0.95rem;">
+                                        <i data-lucide="mail" style="color: var(--text-muted); width: 1em; height: 1em;"></i>
+                                        @item.Emprestimo.EmailResponsavel
+                                    </div>
+                                </td>
+                                <td style="padding: 1rem; color: var(--text-muted); font-size: 0.95rem;">
+                                    @item.Emprestimo.DataEmprestimo.ToString("dd/MM/yyyy HH:mm")
+                                </td>
+                                <td style="padding: 1rem;">
+                                    @if (item.Emprestimo.StatusAtivo)
+                                    {
+                                        <span class="badge" style="background-color: #fef08a; color: #854d0e; padding: 0.4rem 0.6rem; border-radius: 99px; font-size: 0.85rem;">
+                                            <i data-lucide="clock" style="width: 1em; height: 1em; margin-right: 4px;"></i> Em Andamento
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge" style="background-color: #e5e7eb; color: #374151; padding: 0.4rem 0.6rem; border-radius: 99px; font-size: 0.85rem;">
+                                            <i data-lucide="check" style="width: 1em; height: 1em; margin-right: 4px;"></i> Devolvido
+                                        </span>
+                                    }
+                                </td>
+                                <td style="text-align: right; padding: 1rem;">
+                                    @if (item.Emprestimo.StatusAtivo)
+                                    {
+                                        <form method="post" asp-page-handler="Devolver" asp-route-id="@item.Emprestimo.Id" onsubmit="return confirm('Confirmar a devolução deste equipamento?');" style="display: inline;">
+                                            <button type="submit" class="btn btn-sm" style="background-color: #d1fae5; color: #065f46; border: 1px solid #34d399;" title="Devolver">
+                                                <i data-lucide="rotate-ccw" style="width: 1em; height: 1em; margin-right: 4px;"></i> Devolver
+                                            </button>
+                                        </form>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+</div>

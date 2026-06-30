@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MINHA UFN</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css?v=@DateTime.Now.Ticks" />
+    <link rel="stylesheet" href="~/TrabalhoFinal.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm mb-4" style="background-color: #003366 !important; border-bottom: 2px solid #ffcc00;">
+            <div class="container-fluid px-5">
+                <a class="navbar-brand text-uppercase" asp-area="" asp-page="/Index" style="letter-spacing: 1px; flex: 1;">
+                    <span style="color: var(--accent-primary); font-weight: 800;">MINHA</span> <span style="color: #ffffff; font-weight: 800;">UFN</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation" style="border-color: rgba(255,255,255,0.5);">
+                    <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-center" style="flex: 1;">
+                    <ul class="navbar-nav" style="gap: 1.5rem;">
+                        <li class="nav-item">
+                            <a class="nav-link" style="color: #ffffff; font-weight: 500;" asp-area="" asp-page="/Equipamentos/Index">Equipamentos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="color: #ffffff; font-weight: 500;" asp-area="" asp-page="/Emprestimos/Index">Empréstimos</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="d-none d-sm-block" style="flex: 1;"></div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container text-center">
+            &copy; 2026 - MINHA UFN - <a asp-area="" asp-page="/Privacy" style="color: var(--accent-primary);">Privacidade</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

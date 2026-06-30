@@ -1,0 +1,53 @@
+@page
+@using TrabalhoFinal.Models
+@model TrabalhoFinal.Pages.Equipamentos.CriarModel
+@{
+    ViewData["Title"] = "Novo Equipamento";
+}
+
+<div class="anim-fade-up" style="max-width: 600px; margin: 0 auto;">
+    <div class="page-header position-relative d-flex justify-content-center align-items-center mb-4">
+        <a asp-page="/Equipamentos/Index" class="btn btn-secondary position-absolute start-0"><i data-lucide="arrow-left" style="width:1em;height:1em;"></i> Voltar</a>
+        <h1 class="page-title text-center m-0" style="font-weight: 700;"><span>Novo</span> Equipamento</h1>
+    </div>
+
+    <div class="form-card glass-card" style="padding: 2rem;">
+        <form method="post" id="formCriarEquipamento">
+            <div asp-validation-summary="ModelOnly" class="text-danger" style="margin-bottom: 1rem; font-size: 0.85rem;"></div>
+
+            <div class="mb-3">
+                <label asp-for="Equipamento.Nome" class="form-label font-weight-bold">Descrição do Equipamento</label>
+                <input asp-for="Equipamento.Nome" class="form-control" placeholder="Ex: Monitor Samsung 24" autofocus />
+                <span asp-validation-for="Equipamento.Nome" class="text-danger small"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Equipamento.CodigoPatrimonio" class="form-label font-weight-bold">Código Interno de Patrimônio</label>
+                <input asp-for="Equipamento.CodigoPatrimonio" type="password" class="form-control" placeholder="Mínimo 6 caracteres" />
+                <span asp-validation-for="Equipamento.CodigoPatrimonio" class="text-danger small"></span>
+            </div>
+
+            <div class="mb-4">
+                <label asp-for="Equipamento.Situacao" class="form-label font-weight-bold">Situação Atual</label>
+                <select asp-for="Equipamento.Situacao" class="form-select">
+                    <option value="">Selecione uma situação...</option>
+                    <option value="@SituacaoEquipamento.Disponivel">Disponível</option>
+                    <option value="@SituacaoEquipamento.EmUso">Em Uso</option>
+                    <option value="@SituacaoEquipamento.Manutencao">Manutenção</option>
+                </select>
+                <span asp-validation-for="Equipamento.Situacao" class="text-danger small"></span>
+            </div>
+
+            <hr class="divider mb-4" style="border-color: var(--border-muted);" />
+
+            <div class="d-flex gap-2 justify-content-center">
+                <button type="submit" class="btn btn-primary px-4 py-2" style="font-weight: 600;"><i data-lucide="check-circle" style="width:1.2em;height:1.2em;margin-right:8px;"></i> Cadastrar</button>
+                <a asp-page="/Equipamentos/Index" class="btn btn-secondary px-4 py-2" style="font-weight: 600;">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

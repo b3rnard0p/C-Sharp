@@ -1,0 +1,81 @@
+@page
+@using TrabalhoFinal.Models
+@model TrabalhoFinal.Pages.Equipamentos.DetalhesModel
+@{
+    ViewData["Title"] = "Detalhes do Equipamento";
+}
+
+<div class="anim-fade-up" style="max-width: 600px; margin: 0 auto;">
+    <div class="page-header position-relative d-flex justify-content-center align-items-center mb-4">
+        <a asp-page="/Equipamentos/Index" class="btn btn-secondary position-absolute start-0"><i data-lucide="arrow-left" style="width:1em;height:1em;"></i> Voltar</a>
+        <h1 class="page-title text-center m-0" style="font-weight: 700;"><span>Detalhes</span> do Equipamento</h1>
+    </div>
+
+    @if (TempData["Erro"] != null)
+    {
+        <div class="alert alert-danger d-flex align-items-center mb-4" role="alert" style="border-radius: var(--radius-md); font-size: 0.9rem;">
+            <i data-lucide="alert-circle" style="width: 1.2em; height: 1.2em; margin-right: 8px;"></i>
+            @TempData["Erro"]
+        </div>
+    }
+
+    @if (Model.Equipamento == null)
+    {
+        <div class="form-card glass-card" style="padding: 2rem;">
+            <form method="get">
+                <p class="text-muted mb-4 text-center">Informe o código identificador do equipamento que deseja consultar.</p>
+                
+                <div class="mb-4">
+                    <label asp-for="Id" class="form-label font-weight-bold">Código Identificador (ou Patrimônio)</label>
+                    <input asp-for="Id" type="text" class="form-control" placeholder="Ex: 1 ou PAT-123" autofocus />
+                </div>
+
+                <hr class="divider mb-4" style="border-color: var(--border-muted);" />
+
+                <div class="d-flex gap-2 justify-content-center">
+                    <button type="submit" class="btn btn-primary px-4 py-2" style="font-weight: 600;"><i data-lucide="search" style="width:1.2em;height:1.2em;margin-right:8px;"></i> Buscar</button>
+                </div>
+            </form>
+        </div>
+    }
+    else
+    {
+        <div class="glass-card" style="padding: 2rem;">
+            <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-muted);">
+                <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--accent-primary); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; flex-shrink: 0; color: white;">
+                    <i data-lucide="monitor"></i>
+                </div>
+                <div>
+                    <div style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">@Model.Equipamento.Nome</div>
+                    <div style="font-size: 0.9rem; color: var(--text-muted);">Equipamento ID #@Model.Equipamento.Id</div>
+                </div>
+            </div>
+
+            <div style="display: grid; gap: 1.5rem;">
+                <div>
+                    <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 4px; font-weight: 600;">Código de Patrimônio Interno</div>
+                    <div style="font-weight: 500; color: var(--text-primary); font-size: 1.1rem; letter-spacing: 2px;">@Model.CodigoMascarado</div>
+                </div>
+                <div>
+                    <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 4px; font-weight: 600;">Situação Atual</div>
+                    <div style="font-weight: 600;">
+                        @if(Model.Equipamento.Situacao == SituacaoEquipamento.Disponivel)
+                        {
+                            <span class="badge" style="background-color: #d1fae5; color: #065f46; padding: 0.5rem 0.8rem; border-radius: 99px; font-size: 0.95rem;">Disponível</span>
+                        }
+                        else if(Model.Equipamento.Situacao == SituacaoEquipamento.EmUso)
+                        {
+                            <span class="badge" style="background-color: #e0e7ff; color: #3730a3; padding: 0.5rem 0.8rem; border-radius: 99px; font-size: 0.95rem;">Em Uso</span>
+                        }
+                        else
+                        {
+                            <span class="badge" style="background-color: #fee2e2; color: #991b1b; padding: 0.5rem 0.8rem; border-radius: 99px; font-size: 0.95rem;">Manutenção</span>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <hr class="divider mt-4 mb-4" style="border-color: var(--border-muted);" />
+        </div>
+    }
+</div>

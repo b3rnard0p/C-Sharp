@@ -1,0 +1,45 @@
+@page
+@model TrabalhoFinal.Pages.Equipamentos.DeletarModel
+@{
+    ViewData["Title"] = "Excluir Equipamento";
+}
+
+<div class="anim-fade-up" style="max-width: 500px; margin: 0 auto;">
+    <div class="page-header position-relative d-flex justify-content-center align-items-center mb-4">
+        <a asp-page="/Equipamentos/Index" class="btn btn-secondary position-absolute start-0"><i data-lucide="arrow-left" style="width:1em;height:1em;"></i> Voltar</a>
+        <h1 class="page-title text-center m-0" style="font-weight: 700;"><span>Excluir</span> Equipamento</h1>
+    </div>
+
+    @if (TempData["Erro"] != null)
+    {
+        <div class="alert alert-danger d-flex align-items-center mb-4" role="alert" style="border-radius: var(--radius-md); font-size: 0.9rem;">
+            <i data-lucide="alert-circle" style="width: 1.2em; height: 1.2em; margin-right: 8px;"></i>
+            @TempData["Erro"]
+        </div>
+    }
+
+    <div class="form-card">
+        <div class="mb-4 text-center">
+            <h4 class="mb-2">@Model.EquipamentoAlvo?.Nome</h4>
+            <p class="text-muted mb-0">Para confirmar a exclusão deste equipamento, informe o Código Interno de Patrimônio correspondente.</p>
+        </div>
+
+        <form method="post">
+            <input type="hidden" asp-for="Id" />
+            
+            <div class="mb-4">
+                <label asp-for="CodigoInformado" class="form-label font-weight-bold">Código de Patrimônio</label>
+                <input asp-for="CodigoInformado" type="text" class="form-control" placeholder="Ex: PAT-123" autofocus />
+            </div>
+
+            <hr class="divider mb-4" />
+
+            <div class="d-flex justify-content-end gap-2">
+                <a asp-page="/Equipamentos/Index" class="btn btn-secondary">Cancelar</a>
+                <button type="submit" class="btn btn-danger d-flex align-items-center gap-2">
+                    <i data-lucide="trash-2" style="width: 1em; height: 1em;"></i> Confirmar Exclusão
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

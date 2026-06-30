@@ -1,0 +1,110 @@
+@page
+@using TrabalhoFinal.Models
+@model TrabalhoFinal.Pages.Equipamentos.IndexModel
+@{
+    ViewData["Title"] = "Equipamentos";
+}
+
+<div class="anim-fade-up">
+    <div class="page-header position-relative mb-4 d-flex justify-content-between align-items-center">
+        <h1 class="page-title m-0" style="font-weight: 700;"><span>Equipamentos</span> de Informática</h1>
+        <div class="d-flex gap-2">
+            <a asp-page="/Equipamentos/Detalhes" class="btn btn-secondary"><i data-lucide="search" style="width:1em;height:1em;"></i> Buscar por ID</a>
+            <a asp-page="/Equipamentos/Criar" class="btn btn-primary"><i data-lucide="plus" style="width:1em;height:1em;"></i> Novo Equipamento</a>
+        </div>
+    </div>
+
+    @if (TempData["Sucesso"] != null)
+    {
+        <div class="alert alert-success d-flex align-items-center mb-4" role="alert" style="border-radius: var(--radius-md); font-size: 0.9rem;">
+            <i data-lucide="check-circle" style="width: 1.2em; height: 1.2em; margin-right: 8px;"></i>
+            @TempData["Sucesso"]
+        </div>
+    }
+
+    <div class="glass-card mb-4" style="padding: 1rem;">
+        <form method="get" class="row g-3 align-items-end">
+            <div class="col-md-5">
+                <label for="BuscaNome" class="form-label text-muted" style="font-size: 0.85rem; font-weight: 600;">Buscar por nome</label>
+                <input type="text" class="form-control" id="BuscaNome" asp-for="BuscaNome" placeholder="Ex: Notebook Dell">
+            </div>
+            <div class="col-md-4">
+                <label for="FiltroSituacao" class="form-label text-muted" style="font-size: 0.85rem; font-weight: 600;">Filtrar por situação</label>
+                <select class="form-select" id="FiltroSituacao" asp-for="FiltroSituacao">
+                    <option value="">Todas</option>
+                    <option value="@SituacaoEquipamento.Disponivel">Disponível</option>
+                    <option value="@SituacaoEquipamento.EmUso">Em Uso</option>
+                    <option value="@SituacaoEquipamento.Manutencao">Manutenção</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-secondary w-100" style="height: 38px;"><i data-lucide="search" style="width:1em;height:1em;margin-right:4px;"></i> Filtrar</button>
+            </div>
+        </form>
+    </div>
+
+    @if (!Model.Equipamentos.Any())
+    {
+        <div class="glass-card">
+            <div class="empty-state text-center" style="padding: 3rem 1rem;">
+                <div class="empty-state-icon" style="font-size: 3rem; color: var(--text-muted); margin-bottom: 1rem;"><i data-lucide="monitor-off"></i></div>
+                <p style="color: var(--text-muted); font-size: 1.1rem;">Nenhum equipamento encontrado ou cadastrado.</p>
+                <a asp-page="/Equipamentos/Criar" class="btn btn-primary mt-3">Cadastrar equipamento</a>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="table-container glass-card" style="padding: 0; overflow: hidden;">
+            <table class="table m-0">
+                <thead style="background: var(--bg-secondary);">
+                    <tr>
+                        <th style="padding: 1rem; border-bottom: 1px solid var(--border-muted);">ID</th>
+                        <th style="padding: 1rem; border-bottom: 1px solid var(--border-muted);">Nome</th>
+                        <th style="padding: 1rem; border-bottom: 1px solid var(--border-muted);">Situação</th>
+                        <th style="text-align: right; padding: 1rem; border-bottom: 1px solid var(--border-muted);">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var equip in Model.Equipamentos)
+                    {
+                        <tr style="border-bottom: 1px solid var(--border-muted); transition: background-color 0.2s ease;">
+                            <td style="padding: 1rem; color: var(--text-muted); font-size: 0.85rem; vertical-align: middle;">@equip.Id</td>
+                            <td style="padding: 1rem; font-weight: 600; color: var(--text-primary); vertical-align: middle;">
+                                <span style="display: inline-flex; align-items: center; gap: 10px;">
+                                    <span style="width: 32px; height: 32px; border-radius: 50%; background: var(--accent-primary); display: inline-flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0; color: white;"><i data-lucide="monitor"></i></span>
+                                    @equip.Nome
+                                </span>
+                            </td>
+                            <td style="padding: 1rem; vertical-align: middle;">
+                                @if(equip.Situacao == SituacaoEquipamento.Disponivel)
+                                {
+                                    <span class="badge" style="background-color: #d1fae5; color: #065f46; padding: 0.4rem 0.6rem; border-radius: 99px;">Disponível</span>
+                                }
+                                else if(equip.Situacao == SituacaoEquipamento.EmUso)
+                                {
+                                    <span class="badge" style="background-color: #e0e7ff; color: #3730a3; padding: 0.4rem 0.6rem; border-radius: 99px;">Em Uso</span>
+                                }
+                                else
+                                {
+                                    <span class="badge" style="background-color: #fee2e2; color: #991b1b; padding: 0.4rem 0.6rem; border-radius: 99px;">Manutenção</span>
+                                }
+                            </td>
+                            <td style="padding: 1rem; text-align: right; white-space: nowrap; vertical-align: middle;">
+                                <a class="btn btn-outline-info btn-sm" asp-page="/Equipamentos/Detalhes" asp-route-id="@equip.Id" title="Detalhes">
+                                    <i data-lucide="eye" style="width: 1em; height: 1em;"></i>
+                                </a>
+                                <a class="btn btn-outline-secondary btn-sm" asp-page="/Equipamentos/Editar" asp-route-id="@equip.Id" title="Editar">
+                                    <i data-lucide="edit" style="width: 1em; height: 1em;"></i>
+                                </a>
+                                <a class="btn btn-outline-danger btn-sm" asp-page="/Equipamentos/Deletar" asp-route-id="@equip.Id" title="Excluir">
+                                    <i data-lucide="trash-2" style="width: 1em; height: 1em;"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
